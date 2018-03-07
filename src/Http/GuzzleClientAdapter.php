@@ -53,37 +53,43 @@ class GuzzleClientAdapter implements ClientInterface
                 throw new Exception\InvalidData(
                     'Data validation failed',
                     400,
-                    $e
+                    $e,
+                    $e->getResponse()->json()
                 );
             } elseif ($e->getCode() == 403) {
                 throw new Exception\InvalidApiKey(
                     'Access forbidden. Invalid API key.',
                     403,
-                    $e
+                    $e,
+                    $e->getResponse()->getBody()
                 );
             } elseif ($e->getCode() == 404) {
                 throw new Exception\NotFound(
                     'Requested URL was not found.',
                     404,
-                    $e
+                    $e,
+                    $e->getResponse()->getBody()
                 );
             } elseif ($e->getCode() == 500) {
                 throw new Exception\ServerError(
                     'Error occurred on server side while handling request',
                     500,
-                    $e
+                    $e,
+                    $e->getResponse()->getBody()
                 );
             } elseif ($e->getCode() == 504) {
                 throw new Exception\Timeout(
                     'Request timeout',
                     504,
-                    $e
+                    $e,
+                    $e->getResponse()->getBody()
                 );
             } else {
                 throw new Exception\UnexpectedResponse(
                     'Unexpected error occurred',
                     $e->getCode(),
-                    $e
+                    $e,
+                    $e->getResponse()->getBody()
                 );
             }
         } catch (\Exception $e) {
