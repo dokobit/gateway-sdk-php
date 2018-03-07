@@ -150,7 +150,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('createResult')
             ->willReturn(
-                $this->getMockBuilder('Isign\Gateway\ResultInterface')
+                $this->getMockBuilder('Isign\Gateway\Result\ResultInterface')
                     ->disableOriginalConstructor()
                     ->getMock()
             )
