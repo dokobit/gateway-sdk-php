@@ -1,5 +1,5 @@
 <?php
-namespace isign\Gateway\Http;
+namespace Isign\Gateway\Http;
 
 use GuzzleHttp;
 use GuzzleHttp\Exception\BadResponseException;
