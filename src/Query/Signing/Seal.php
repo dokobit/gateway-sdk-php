@@ -1,16 +1,17 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\Signing;
 
 use Isign\Gateway\DocumentTypeProvider;
+use Isign\Gateway\Query\QueryInterface;
 use Isign\Gateway\Result\ResultInterface;
-use Isign\Gateway\Result\SigningSealResult;
+use Isign\Gateway\Result\Signing\SealResult;
 use Isign\Gateway\SigningPurposeProvider;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Upload a file to Gateway.
  */
-class SigningSeal implements QueryInterface
+class Seal implements QueryInterface
 {
     /** @var string signing document type */
     private $type;
@@ -97,11 +98,11 @@ class SigningSeal implements QueryInterface
 
     /**
      * Result object for this query result
-     * @return SigningSealResult
+     * @return SealResult
      */
     public function createResult(): ResultInterface
     {
-        return new SigningSealResult();
+        return new SealResult();
     }
 
     /**

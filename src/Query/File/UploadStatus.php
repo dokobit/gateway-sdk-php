@@ -1,15 +1,16 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\File;
 
 use Isign\Gateway\DocumentTypeProvider;
+use Isign\Gateway\Query\QueryInterface;
+use Isign\Gateway\Result\File\UploadStatusResult;
 use Isign\Gateway\Result\ResultInterface;
-use Isign\Gateway\Result\FileUploadStatusResult;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check upload status.
  */
-class FileUploadStatus implements QueryInterface
+class UploadStatus implements QueryInterface
 {
     /** @var string signing token */
     private $token;
@@ -17,7 +18,8 @@ class FileUploadStatus implements QueryInterface
     /**
      * @param string $token
      */
-    public function __construct(string $token) {
+    public function __construct(string $token)
+    {
         $this->token = $token;
     }
 
@@ -47,11 +49,11 @@ class FileUploadStatus implements QueryInterface
 
     /**
      * Result object for this query result
-     * @return FileUploadStatusResult
+     * @return UploadStatusResult
      */
     public function createResult(): ResultInterface
     {
-        return new FileUploadStatusResult();
+        return new UploadStatusResult();
     }
 
     /**

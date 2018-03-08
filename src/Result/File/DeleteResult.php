@@ -1,15 +1,15 @@
 <?php
-namespace Isign\Gateway\Result;
+namespace Isign\Gateway\Result\File;
+
+use Isign\Gateway\Result\ResultInterface;
 
 /**
- * Result object for file/upload/{token}/status response.
+ * Result object for file/{token}/delete response.
  */
-class FileUploadStatusResult implements ResultInterface
+class DeleteResult implements ResultInterface
 {
 
-    const STATUS_UPLOADED = 'uploaded';
-    const STATUS_WAITING = 'waiting';
-    const STATUS_ERROR = 'error';
+    const STATUS_OK = 'ok';
 
     /** @var string response status */
     private $status;

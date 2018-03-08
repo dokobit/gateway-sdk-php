@@ -1,16 +1,20 @@
 <?php
-namespace Isign\Gateway\Result;
+namespace Isign\Gateway\Result\File;
+
+use Isign\Gateway\Result\ResultInterface;
 
 /**
- * Result object for file/upload response.
+ * Result object for file/upload/{token}/status response.
  */
-class FileUploadResult implements ResultInterface
+class UploadStatusResult implements ResultInterface
 {
+
+    const STATUS_UPLOADED = 'uploaded';
+    const STATUS_WAITING = 'waiting';
+    const STATUS_ERROR = 'error';
+
     /** @var string response status */
     private $status;
-
-    /** @var string token for mobile status query */
-    private $token;
 
     /**
      * Fields expected in response
@@ -19,7 +23,6 @@ class FileUploadResult implements ResultInterface
     {
         return [
             'status',
-            'token',
         ];
     }
 
@@ -37,21 +40,5 @@ class FileUploadResult implements ResultInterface
     public function getStatus(): string
     {
         return $this->status;
-    }
-
-    /**
-     * Set token
-     */
-    public function setToken(string $token): void
-    {
-        $this->token = $token;
-    }
-
-    /**
-     * Get token
-     */
-    public function getToken(): string
-    {
-        return $this->token;
     }
 }

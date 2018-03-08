@@ -1,21 +1,22 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\File;
 
-use Isign\Gateway\Result\FileUploadResult;
+use Isign\Gateway\Query\QueryInterface;
+use Isign\Gateway\Result\File\UploadResult;
 use Isign\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Upload a file to Gateway.
  */
-class FileUpload implements QueryInterface
+class Upload implements QueryInterface
 {
     use FileFieldsTrait;
 
     /** @var string path of the file to be uploded */
     private $path;
 
-    /** $var string|null file name which should be sent to Gateway */
+    /** @var string|null file name which should be sent to Gateway */
     private $filename;
 
     /**
@@ -65,11 +66,11 @@ class FileUpload implements QueryInterface
 
     /**
      * Result object for this query result
-     * @return FileUploadResult
+     * @return UploadResult
      */
     public function createResult(): ResultInterface
     {
-        return new FileUploadResult();
+        return new UploadResult();
     }
 
     /**

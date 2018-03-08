@@ -1,10 +1,12 @@
 <?php
-namespace Isign\Gateway\Result;
+namespace Isign\Gateway\Result\File;
+
+use Isign\Gateway\Result\ResultInterface;
 
 /**
- * Result object for signing/create response.
+ * Result object for file/upload response.
  */
-class SigningSealResult implements ResultInterface
+class UploadResult implements ResultInterface
 {
     /** @var string response status */
     private $status;
@@ -14,9 +16,8 @@ class SigningSealResult implements ResultInterface
 
     /**
      * Fields expected in response
-     * @return array
      */
-    public function getFields()
+    public function getFields(): array
     {
         return [
             'status',

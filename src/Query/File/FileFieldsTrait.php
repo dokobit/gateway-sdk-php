@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\File;
 
 trait FileFieldsTrait
 {

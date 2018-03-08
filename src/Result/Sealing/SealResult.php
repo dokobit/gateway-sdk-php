@@ -1,19 +1,18 @@
 <?php
-namespace Isign\Gateway\Result;
+namespace Isign\Gateway\Result\Signing;
+
+use Isign\Gateway\Result\ResultInterface;
 
 /**
  * Result object for signing/create response.
  */
-class SigningCreateResult implements ResultInterface
+class SealResult implements ResultInterface
 {
     /** @var string response status */
     private $status;
 
     /** @var string token for mobile status query */
     private $token;
-
-    /** @var array document signers */
-    private $signers;
 
     /**
      * Fields expected in response
@@ -24,7 +23,6 @@ class SigningCreateResult implements ResultInterface
         return [
             'status',
             'token',
-            'signers',
         ];
     }
 
@@ -58,21 +56,5 @@ class SigningCreateResult implements ResultInterface
     public function getToken(): string
     {
         return $this->token;
-    }
-
-    /**
-     * Set signers
-     */
-    public function setSigners(?array $signers): void
-    {
-        $this->signers = $signers;
-    }
-
-    /**
-     * Get signers
-     */
-    public function getSigners(): ?array
-    {
-        return $this->signers;
     }
 }

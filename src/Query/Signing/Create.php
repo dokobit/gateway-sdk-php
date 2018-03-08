@@ -1,9 +1,10 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\Signing;
 
 use Isign\Gateway\DocumentTypeProvider;
+use Isign\Gateway\Query\QueryInterface;
 use Isign\Gateway\Result\ResultInterface;
-use Isign\Gateway\Result\SigningCreateResult;
+use Isign\Gateway\Result\Signing\CreateResult;
 use Isign\Gateway\SigningPurposeProvider;
 use Isign\Gateway\Validator\Constraints as MyAssert;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -11,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Upload a file to Gateway.
  */
-class SigningCreate implements QueryInterface
+class Create implements QueryInterface
 {
     const FILE_TYPE_MAIN = 'main';
     const FILE_TYPE_APPENDIX = 'appendix';
@@ -129,7 +130,7 @@ class SigningCreate implements QueryInterface
                     ]),
                 ]),
             ]),
-            'signers' => new Assert\Required([
+            'signers' => new Assert\Optional([
                 new Assert\NotBlank(),
                 new Assert\All([
                     new Assert\Collection([
@@ -187,11 +188,11 @@ class SigningCreate implements QueryInterface
 
     /**
      * Result object for this query result
-     * @return SigningCreateResult
+     * @return CreateResult
      */
     public function createResult(): ResultInterface
     {
-        return new SigningCreateResult();
+        return new CreateResult();
     }
 
     /**

@@ -1,15 +1,16 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Isign\Gateway\Query\File;
 
 use Isign\Gateway\DocumentTypeProvider;
+use Isign\Gateway\Query\QueryInterface;
+use Isign\Gateway\Result\File\DeleteResult;
 use Isign\Gateway\Result\ResultInterface;
-use Isign\Gateway\Result\FileDeleteResult;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check upload status.
  */
-class FileDelete implements QueryInterface
+class Delete implements QueryInterface
 {
     /** @var string signing token */
     private $token;
@@ -17,7 +18,8 @@ class FileDelete implements QueryInterface
     /**
      * @param string $token
      */
-    public function __construct(string $token) {
+    public function __construct(string $token)
+    {
         $this->token = $token;
     }
 
@@ -47,11 +49,11 @@ class FileDelete implements QueryInterface
 
     /**
      * Result object for this query result
-     * @return FileDeleteResult
+     * @return DeleteResult
      */
     public function createResult(): ResultInterface
     {
-        return new FileDeleteResult();
+        return new DeleteResult();
     }
 
     /**
