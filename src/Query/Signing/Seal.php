@@ -1,7 +1,6 @@
 <?php
 namespace Isign\Gateway\Query\Signing;
 
-use Isign\Gateway\DocumentTypeProvider;
 use Isign\Gateway\Query\QueryInterface;
 use Isign\Gateway\Result\ResultInterface;
 use Isign\Gateway\Result\Signing\SealResult;
@@ -13,40 +12,37 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Seal implements QueryInterface
 {
-    /** @var string signing document type */
-    private $type;
+    /** @var string signing token */
+    private $token;
 
     /** @var string signing name */
     private $name;
 
-    /** @var string signing token */
-    private $token;
-
-    /** @var string document type-specific options */
-    private $params;
-
-    /** @var string postback URL, if specified */
+    /** @var string Signing purpose */
     private $signing_purpose;
 
+    /** @var string document type */
+    private $type;
+
+    /** @var array PDF-specific options */
+    private $params;
+
     /**
-     * @param string $type document type
-     * @param string $name document name
      * @param string $token
-     * @param array|null $params Optional parameters per file type
-     * @param string $signing_purpose optional
+     * @param string $name document name
+     * @param string|null $signing_purpose optional
+     * @param array|null $params Optional parameters per file type, should
      */
     public function __construct(
-        string $type,
-        string $name,
         string $token,
-        ?array $params = null,
-        ?string $signing_purpose = null
+        string $name,
+        ?string $signing_purpose = null,
+        ?array $params = null
     ) {
-        $this->type = $type;
-        $this->name = $name;
         $this->token = $token;
-        $this->params = $params;
+        $this->name = $name;
         $this->signing_purpose = $signing_purpose;
+        $this->params = $params;
     }
 
     /**
@@ -56,16 +52,16 @@ class Seal implements QueryInterface
     public function getFields(): array
     {
         $return = [
-            'name' => $this->name,
             'token' => $this->token,
+            'name' => $this->name,
         ];
-
-        if ($this->params !== null) {
-            $return[$this->type] = $this->params;
-        }
 
         if ($this->signing_purpose !== null) {
             $return['signing_purpose'] = $this->signing_purpose;
+        }
+
+        if ($this->params !== null) {
+            $return['pdf'] = $this->params;
         }
 
         return $return;
@@ -78,10 +74,10 @@ class Seal implements QueryInterface
     public function getValidationConstraints(): Assert\Collection
     {
         return new Assert\Collection([
-            'name' => new Assert\Required([
+            'token' => new Assert\Required([
                 new Assert\NotBlank(),
             ]),
-            'token' => new Assert\Required([
+            'name' => new Assert\Required([
                 new Assert\NotBlank(),
             ]),
             'signing_purpose' => new Assert\Optional([
@@ -90,8 +86,48 @@ class Seal implements QueryInterface
                     'choices' => SigningPurposeProvider::getAllSigningPurposes(),
                 ]),
             ]),
-            $this->type => new Assert\Optional([
-                new Assert\Collection(),
+            'pdf' => new Assert\Optional([
+                new Assert\NotBlank(),
+                new Assert\Collection([
+                    'annotation' => new Assert\Optional([
+                        new Assert\NotBlank(),
+                        new Assert\Collection([
+                            'page' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                                new Assert\Type([
+                                    'type' => 'numeric',
+                                ]),
+                            ]),
+                            'top' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                                new Assert\Type([
+                                    'type' => 'numeric',
+                                ]),
+                            ]),
+                            'left' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                                new Assert\Type([
+                                    'type' => 'numeric',
+                                ])
+                            ]),
+                            'width' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                                new Assert\Type([
+                                    'type' => 'numeric',
+                                ])
+                            ]),
+                            'height' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                                new Assert\Type([
+                                    'type' => 'numeric',
+                                ])
+                            ]),
+                            'text' => new Assert\Optional([
+                                new Assert\NotBlank(),
+                            ]),
+                        ]),
+                    ]),
+                ]),
             ]),
         ]);
     }
