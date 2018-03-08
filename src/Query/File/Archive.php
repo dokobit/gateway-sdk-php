@@ -62,7 +62,7 @@ class Archive implements QueryInterface
             'type' => new Assert\Required([
                 new Assert\NotBlank(),
                 new Assert\Choice([
-                    'choices' => DocumentTypeProvider::getAllDocumentTypes(),
+                    'choices' => DocumentTypeProvider::getPrimaryDocumentTypes(),
                 ]),
             ]),
             'file' => new Assert\Required([
