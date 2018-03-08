@@ -4,7 +4,7 @@ namespace Isign\Gateway\Result\Signing;
 use Isign\Gateway\Result\ResultInterface;
 
 /**
- * Result object for signing/create response.
+ * Result object for signing/{token}/addsigner response.
  */
 class AddSignerResult implements ResultInterface
 {
