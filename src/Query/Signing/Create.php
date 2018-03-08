@@ -180,7 +180,10 @@ class Create implements QueryInterface
                     ]),
                 ]),
             ]),
-            'postback_url' => new Assert\Optional(),
+            'postback_url' => new Assert\Optional([
+                new Assert\NotBlank(),
+                new Assert\Url(),
+            ]),
             'language' => new Assert\Optional(),
             $this->type => new Assert\Optional(),
         ]);
