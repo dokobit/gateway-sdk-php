@@ -4,10 +4,10 @@ namespace Isign\Gateway\Tests\Validator\Constraints;
 
 use Isign\Gateway\Validator\Constraints\Phone;
 use Isign\Gateway\Validator\Constraints\PhoneValidator;
-use Symfony\Component\Validator\Tests\Constraints\AbstractConstraintValidatorTest;
+use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
-class PhoneValidatorTest extends AbstractConstraintValidatorTest
+class PhoneValidatorTest extends ConstraintValidatorTestCase
 {
     protected function getApiVersion()
     {
