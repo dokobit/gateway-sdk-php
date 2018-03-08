@@ -7,6 +7,7 @@ abstract class DocumentTypeProvider
     const PDF = 'pdf';
     const PDFLT = 'pdflt';
 
+    const ASIC = 'asic';
     const ASICE = 'asice';
 
     const ADOC = 'adoc';
@@ -50,7 +51,8 @@ abstract class DocumentTypeProvider
     {
         return [
             self::PDF,
-            self::ASICE,
+            self::PDFLT,
+            self::ASIC,
             self::ADOC,
             self::MDOC,
             self::BDOC,
