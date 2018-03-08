@@ -4,6 +4,8 @@ namespace Isign\Gateway\Query;
 use Isign\Gateway\DocumentTypeProvider;
 use Isign\Gateway\Result\ResultInterface;
 use Isign\Gateway\Result\SigningCreateResult;
+use Isign\Gateway\SigningPurposeProvider;
+use Isign\Gateway\Validator\Constraints as MyAssert;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -11,6 +13,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class SigningCreate implements QueryInterface
 {
+    const FILE_TYPE_MAIN = 'main';
+    const FILE_TYPE_APPENDIX = 'appendix';
+    const FILE_TYPE_ATTACHMENT = 'attachment';
+
     /** @var string signing document type */
     private $type;
 
@@ -97,7 +103,7 @@ class SigningCreate implements QueryInterface
             'type' => new Assert\Required([
                 new Assert\NotBlank(),
                 new Assert\Choice([
-                    'choices' => DocumentTypeProvider::getAllDocumentTypes()
+                    'choices' => DocumentTypeProvider::getAllDocumentTypes(),
                 ]),
             ]),
             'name' => new Assert\Required([
@@ -105,11 +111,73 @@ class SigningCreate implements QueryInterface
             ]),
             'files' => new Assert\Required([
                 new Assert\NotBlank(),
-                new Assert\Type('array'),
+                new Assert\All([
+                    new Assert\Collection([
+                        'token' => new Assert\Required([
+                            new Assert\NotBlank(),
+                        ]),
+                        'type' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                            new Assert\Choice([
+                                'choices' => [
+                                    self::FILE_TYPE_MAIN,
+                                    self::FILE_TYPE_APPENDIX,
+                                    self::FILE_TYPE_ATTACHMENT,
+                                ],
+                            ]),
+                        ]),
+                    ]),
+                ]),
             ]),
             'signers' => new Assert\Required([
                 new Assert\NotBlank(),
-                new Assert\Type('array'),
+                new Assert\All([
+                    new Assert\Collection([
+                        'name' => new Assert\Required([
+                            new Assert\NotBlank(),
+                        ]),
+                        'surname' => new Assert\Required([
+                            new Assert\NotBlank(),
+                        ]),
+                        'code' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                            new MyAssert\Code(),
+                        ]),
+                        'phone' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                            new MyAssert\Phone(),
+                        ]),
+                        'company' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'country' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'country_code' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                            new Assert\Country(),
+                        ]),
+                        'city' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'postal_code' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'position' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'structural_subdivision' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                        ]),
+                        'signing_purpose' => new Assert\Optional([
+                            new Assert\NotBlank(),
+                            new Assert\Choice([
+                                'choices' => SigningPurposeProvider::getAllSigningPurposes(),
+                            ]),
+                        ]),
+                        $this->type => new Assert\Optional(),
+                    ]),
+                ]),
             ]),
             'postback_url' => new Assert\Optional(),
             'language' => new Assert\Optional(),
