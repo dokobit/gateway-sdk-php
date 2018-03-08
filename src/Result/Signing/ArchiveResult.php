@@ -8,9 +8,6 @@ use Isign\Gateway\Result\ResultInterface;
  */
 class ArchiveResult implements ResultInterface
 {
-
-    const STATUS_OK = 'ok';
-
     /** @var string response status */
     private $status;
 

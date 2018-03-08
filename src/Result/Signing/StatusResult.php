@@ -9,10 +9,10 @@ use Isign\Gateway\Result\ResultInterface;
 class StatusResult implements ResultInterface
 {
 
-    const STATUS_PENDING = 'pending';
-    const STATUS_COMPLETED = 'completed';
-    const STATUS_ARCHIVED = 'archived';
-    const STATUS_FAILED = 'failed';
+    const SIGNING_STATUS_PENDING = 'pending';
+    const SIGNING_STATUS_COMPLETED = 'completed';
+    const SIGNING_STATUS_ARCHIVED = 'archived';
+    const SIGNING_STATUS_FAILED = 'failed';
 
     const SIGNER_STATUS_PENDING = 'pending';
     const SIGNER_STATUS_SIGNED = 'signed';

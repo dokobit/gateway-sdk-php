@@ -10,8 +10,6 @@ class UploadStatusResult implements ResultInterface
 {
 
     const STATUS_UPLOADED = 'uploaded';
-    const STATUS_WAITING = 'waiting';
-    const STATUS_ERROR = 'error';
 
     /** @var string response status */
     private $status;

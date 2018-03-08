@@ -8,9 +8,6 @@ use Isign\Gateway\Result\ResultInterface;
  */
 class CheckResult implements ResultInterface
 {
-
-    const STATUS_OK = 'ok';
-
     /** @var string response status */
     private $status;
 
