@@ -13,7 +13,7 @@ class ArchiveTest extends TestCase
     const NAME = 'document.pdf';
     const TOKEN = 'UploadedFileToken';
 
-    /** @var  Archive */
+    /** @var Archive */
     private $query;
 
     /** @var Archive */

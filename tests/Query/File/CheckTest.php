@@ -12,7 +12,7 @@ class CheckTest extends TestCase
     const TYPE = 'pdf';
     const NAME = 'document.pdf';
 
-    /** @var  Check */
+    /** @var Check */
     private $query;
 
     public function setUp()
