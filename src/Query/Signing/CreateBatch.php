@@ -47,13 +47,15 @@ class CreateBatch implements QueryInterface
      */
     public function getValidationConstraints(): Assert\Collection
     {
-        return new Assert\All([
-            new Assert\Collection([
-                'token' => new Assert\Required([
-                    new Assert\NotBlank()
-                ]),
-                'signer_token' => new Assert\Optional([
-                    new Assert\NotBlank(),
+        return new Assert\Collection([
+            'signings' => new Assert\All([
+                new Assert\Collection([
+                    'token' => new Assert\Required([
+                        new Assert\NotBlank()
+                    ]),
+                    'signer_token' => new Assert\Optional([
+                        new Assert\NotBlank(),
+                    ]),
                 ]),
             ]),
         ]);
