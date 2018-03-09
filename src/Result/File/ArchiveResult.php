@@ -6,7 +6,7 @@ use Isign\Gateway\Result\ResultInterface;
 /**
  * Result object for archive response.
  */
-class DeleteResult implements ResultInterface
+class ArchiveResult implements ResultInterface
 {
     /** @var string response status */
     private $status;
