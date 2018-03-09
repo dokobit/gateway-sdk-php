@@ -19,7 +19,7 @@ class ArchiveResultTest extends TestCase
     public function expectedFields()
     {
         return [
-            ['status', 'ok'],
+            ['status'],
             ['file', ['key1' => 'value1']],
             ['structure', ['key2' => 'value2']],
         ];

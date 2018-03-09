@@ -16,7 +16,7 @@ trait TestResultFieldsTrait
     /**
      * @dataProvider expectedFields
      */
-    public function testSettersAndGetters($name, $value)
+    public function testSettersAndGetters($name, $value = 'foo')
     {
         $this->assertSetterExists($name, $this->method, $value);
         $this->assertGetterExists($name, $this->method, $value);

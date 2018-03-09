@@ -19,7 +19,7 @@ class CheckResultTest extends TestCase
     public function expectedFields()
     {
         return [
-            ['status', 'ok'],
+            ['status'],
             ['structure', ['foo' => 'bar']],
         ];
     }
