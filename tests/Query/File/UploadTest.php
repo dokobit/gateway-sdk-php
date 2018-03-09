@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Isign\Gateway\Tests\Query\File;
 
 use Isign\Gateway\Query\File\Upload;

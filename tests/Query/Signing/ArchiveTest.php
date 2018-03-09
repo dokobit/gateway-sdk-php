@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Isign\Gateway\Tests\Query\Signing;
 
 use Isign\Gateway\Query\Signing\Archive;
