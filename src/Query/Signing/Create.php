@@ -24,19 +24,19 @@ class Create implements QueryInterface
     /** @var string signing name */
     private $name;
 
-    /** @var string tokens and other information about the douments to be signed */
+    /** @var array tokens and other information about the douments to be signed */
     private $files;
 
-    /** @var string information about document signers */
+    /** @var array|null information about document signers */
     private $signers;
 
-    /** @var string postback URL, if specified */
+    /** @var string|null postback URL, if specified */
     private $posbackUrl;
 
-    /** @var string preferred Gateway UI language, if specified */
+    /** @var string|null preferred Gateway UI language, if specified */
     private $language;
 
-    /** @var string document type-specific options */
+    /** @var array|null document type-specific options */
     private $params;
 
     /**
@@ -52,7 +52,7 @@ class Create implements QueryInterface
         string $type,
         string $name,
         array $files,
-        array $signers,
+        ?array $signers = null,
         ?string $postbackUrl = null,
         ?string $language = null,
         ?array $params = null
@@ -76,8 +76,11 @@ class Create implements QueryInterface
             'type' => $this->type,
             'name' => $this->name,
             'files' => $this->files,
-            'signers' => $this->signers,
         ];
+
+        if ($this->signers !== null) {
+            $return['signers'] = $this->signers;
+        }
 
         if ($this->postbackUrl !== null) {
             $return['postback_url'] = $this->postbackUrl;
@@ -134,6 +137,9 @@ class Create implements QueryInterface
                 new Assert\NotBlank(),
                 new Assert\All([
                     new Assert\Collection([
+                        'id' => new Assert\Required([
+                            new Assert\NotBlank(),
+                        ]),
                         'name' => new Assert\Required([
                             new Assert\NotBlank(),
                         ]),
