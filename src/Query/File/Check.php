@@ -40,7 +40,7 @@ class Check implements QueryInterface
     {
         return [
             'type' => $this->type,
-            'file' => $$this->getFileFields($this->path),
+            'file' => $this->getFileFields($this->path),
         ];
     }
 
