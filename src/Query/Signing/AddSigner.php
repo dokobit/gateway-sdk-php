@@ -57,6 +57,9 @@ class AddSigner implements QueryInterface
                 new Assert\NotBlank(),
                 new Assert\All([
                     new Assert\Collection([
+                        'id' => new Assert\Required([
+                            new Assert\NotBlank(),
+                        ]),
                         'name' => new Assert\Required([
                             new Assert\NotBlank(),
                         ]),
