@@ -31,7 +31,7 @@ class Seal implements QueryInterface
      * @param string $token
      * @param string $name document name
      * @param string|null $signing_purpose optional
-     * @param array|null $params Optional parameters per file type, should
+     * @param array|null $params Optional parameters per file type (currently only PDF params are supported)
      */
     public function __construct(
         string $token,
