@@ -18,7 +18,6 @@
     <php>
         <!-- For integration tests -->
         <const name="SANDBOX_API_KEY" value=""/>
-        <const name="SANDBOX_URL" value="https://gateway-sandbox.isign.io"/>
         <const name="TIMEOUT" value="20"/>
         <const name="PHONE" value="+37200000766"/>
         <const name="CODE" value="11412090004"/>
