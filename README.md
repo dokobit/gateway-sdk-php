@@ -43,7 +43,7 @@ https://github.com/Seldaek/monolog
 
 ## Debugging
 
-To dig more into occured error use following methods. A
+To dig more into occured error use following methods:
 
     echo (string) $exception->getMessage()
     echo (string) $exception->getPrevious()->getResponse()
