@@ -10,10 +10,10 @@ class RemoveSignerTest extends TestCase
     const TOKEN = 'UploadedFileToken';
     const SIGNER_ID = 'RandomNotReally';
 
-    /** @var Archive */
+    /** @var RemoveSigner */
     private $query;
 
-    /** @var Archive */
+    /** @var RemoveSigner */
     private $queryToken;
 
     public function setUp()
