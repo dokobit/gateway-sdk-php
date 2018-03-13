@@ -114,7 +114,7 @@ class StatusResult implements ResultInterface
     /**
      * Set structure
      */
-    public function setStructure(array $stucture): void
+    public function setStructure(array $structure): void
     {
         $this->structure = $structure;
     }
