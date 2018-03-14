@@ -42,7 +42,7 @@ class StatusResult implements ResultInterface
             'status',
             'signers',
             'file',
-            'validTo',
+            'valid_to',
             'structure',
         ];
     }

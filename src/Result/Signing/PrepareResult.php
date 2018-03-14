@@ -29,7 +29,7 @@ class PrepareResult implements ResultInterface
         return [
             'status',
             'dtbs',
-            'dtbsHash',
+            'dtbs_hash',
             'algorithm',
         ];
     }
