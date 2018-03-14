@@ -1,0 +1,34 @@
+{
+    "name": "isign/gateway-sdk-php",
+    "description": "Client for ISIGN Gateway API",
+
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://www.isign.io",
+
+    "require": {
+        "php"                       : ">=7.0.0",
+        "guzzlehttp/guzzle"         : "~5.3",
+        "guzzlehttp/log-subscriber" : "~1.0",
+        "symfony/validator"         : "~3.2|~4.0"
+    },
+    "require-dev": {
+        "psr/log"           : "~1.0",
+        "monolog/monolog"   : "~1.0",
+        "phpunit/phpunit"   : "~5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Isign\\Gateway\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Isign\\Gateway\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
+}
+
