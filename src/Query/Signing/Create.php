@@ -208,7 +208,10 @@ class Create implements QueryInterface
                 new Assert\NotBlank(),
                 new Assert\Url(),
             ]),
-            'language' => new Assert\Optional(),
+            'language' => new Assert\Optional([
+                new Assert\NotBlank(),
+                new Assert\Language(),
+            ]),
             $this->type => new Assert\Optional(),
         ]);
     }
