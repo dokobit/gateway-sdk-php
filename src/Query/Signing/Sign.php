@@ -61,7 +61,7 @@ class Sign implements QueryInterface
             'signer_id' => new Assert\Required([
                 new Assert\NotBlank(),
             ]),
-            'signature_value' => new Assert\Optional([
+            'signature_value' => new Assert\Required([
                 new Assert\NotBlank(),
             ]),
         ]);
