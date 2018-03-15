@@ -21,7 +21,7 @@ class PrepareResultTest extends TestCase
         return [
             ['status'],
             ['dtbs'],
-            ['dtbsHash'],
+            ['dtbs_hash'],
             ['algorithm'],
         ];
     }

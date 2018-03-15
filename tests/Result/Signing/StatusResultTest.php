@@ -22,7 +22,7 @@ class StatusResultTest extends TestCase
             ['status'],
             ['signers', ['foo' => 'bar']],
             ['file'],
-            ['validTo'],
+            ['valid_to'],
             ['structure', ['foo' => 'bar']],
         ];
     }
