@@ -15,7 +15,8 @@ interface ClientInterface
      *         'param2' => 'value2',
      *     ]
      * ]
+     * @param bool $expectJson whether JSON response is expected
      * @return array
      */
-    public function sendRequest($method, $url, array $options = []);
+    public function sendRequest(string $method, string $url, array $options = [], bool $expectJson = true);
 }

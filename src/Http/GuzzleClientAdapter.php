@@ -37,17 +37,26 @@ class GuzzleClientAdapter implements ClientInterface
      *         'param2' => 'value2',
      *     ]
      * ]
+     * @param bool $expectJson whether JSON response is expected
      * @return array
      */
-    public function sendRequest($method, $url, array $options = [])
-    {
+    public function sendRequest(
+        string $method,
+        string $url,
+        array $options = [],
+        bool $expectJson = true
+    ): array {
         $result = [];
 
         try {
             $response = $this->client->send(
                 $this->client->createRequest($method, $url, $options)
             );
-            $result = $response->json();
+            if ($expectJson) {
+                $result = $response->json();
+            } else {
+                $result = [ 'body' => $response->getBody() ];
+            }
         } catch (BadResponseException $e) {
             if ($e->getCode() == 400) {
                 throw new Exception\InvalidData(

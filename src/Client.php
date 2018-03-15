@@ -230,6 +230,26 @@ class Client
     }
 
     /**
+     * Download signed file from a given URL and place it in the specified path.
+     *
+     * @param string $url URL to download.
+     * @param string $path Path to download the file to.
+     * @param bool $sendAccessToken Set this to false if you do not want access token appended to the URL automatically.
+     *             Defaults to true.
+     */
+    public function downloadFile(
+        string $url,
+        string $path,
+        ?bool $sendAccessToken = true
+    ): void {
+        if ($sendAccessToken) {
+            $url .= '?access_token=' . $this->apiKey;
+        }
+
+        $this->client->sendRequest(QueryInterface::GET, $url, ['save_to' => $path], false);
+    }
+
+    /**
      * Handle request options and perform HTTP request using HTTP client.
      * @param string $method
      * @param string $url
