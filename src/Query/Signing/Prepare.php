@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Prepare file for signing via API.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_prepare
  */
 class Prepare implements QueryInterface
 {

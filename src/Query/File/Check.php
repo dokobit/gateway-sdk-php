@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check validity of a signed file.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_file_check
  */
 class Check implements QueryInterface
 {

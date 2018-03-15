@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Archive a signed file.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_archive
  */
 class Archive implements QueryInterface
 {
@@ -26,7 +27,7 @@ class Archive implements QueryInterface
     /**
      * @param string $type intended type of the signed file
      * @param string $path path of the file to be uploded, or a token of an already uploaded file
-     * @param bool $pathIsToken if true, $path if is as a token (defaults to false)
+     * @param bool $pathIsToken if true, $path if is an uploaded file token, not a path (defaults to false)
      */
     public function __construct(
         string $type,

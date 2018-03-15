@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Remove signers from signing.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_removesigner
  */
 class RemoveSigner implements QueryInterface
 {

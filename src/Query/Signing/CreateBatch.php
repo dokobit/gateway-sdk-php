@@ -8,20 +8,20 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Create a batch signing.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_createbatch
  */
 class CreateBatch implements QueryInterface
 {
-    /** @var array an array of associative arrays of signing and signer tokens. Format:
-     *       [
-     *           ['token' => 'signingToken1', 'signer_token' => 'signerToken1'],
-     *           ['token' => 'signingToken2', 'signer_token' => 'signerToken2']
-     *       ]
-     */
+    /** @var array an array of associative arrays of signing and signer tokens */
     private $signings;
 
     /**
-     * @param array $signingTokens
-     * @param array $signerTokens
+     * @param array $signings an array of associative arrays of signing and signer tokens. Format:
+     *       [
+     *           ['token' => 'signingToken1', 'signer_token' => 'signerToken1'],
+     *           ['token' => 'signingToken2', 'signer_token' => 'signerToken2'],
+     *           ...
+     *       ]
      */
     public function __construct(array $signings)
     {

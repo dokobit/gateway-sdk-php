@@ -9,14 +9,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check upload status.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_file_delete
  */
 class Delete implements QueryInterface
 {
-    /** @var string signing token */
+    /** @var string uploaded file token */
     private $token;
 
     /**
-     * @param string $token
+     * @param string $token uploaded file token
      */
     public function __construct(string $token)
     {

@@ -10,8 +10,7 @@ use Symfony\Component\Validator\Constraints\Regex;
 class Code extends Regex
 {
     /**
-     * Base validation pattern which includes + char only,
-     * all other parts are built on the fly
+     * Base validation pattern. All other parts are built on the fly
      */
     const VALIDATION_PATTERN = '/^(%s)$/';
 

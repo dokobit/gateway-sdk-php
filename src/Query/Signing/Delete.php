@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Delete a signing.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_delete
  */
 class Delete implements QueryInterface
 {

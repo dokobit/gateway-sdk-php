@@ -10,7 +10,8 @@ use Isign\Gateway\Validator\Constraints as MyAssert;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Upload a file to Gateway.
+ * Create a new signing from uploaded file(s).
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_create
  */
 class Create implements QueryInterface
 {
@@ -42,11 +43,28 @@ class Create implements QueryInterface
     /**
      * @param string $type document type
      * @param string $name document name
-     * @param array $files tokens and other information about the documents to be signed
-     * @param array $signers information about document signers
-     * @param string $postbackUrl postback URL
-     * @param string $language language to be used when communicating with the signer
-     * @param string $params Optional parameters per file type
+     * @param array $files tokens and types of the documents to be signed. Format:
+     *       [
+     *           [ 'token' => 'FirstUploadedFileToken', 'type' => 'main' ],
+     *           [ 'token' => 'SecondUploadedFileToken', 'type' => 'appendix' ],
+     *           ...
+     *       ]
+     *       Specifying `type` is optional, and it is only relevant when creating certain document types.
+     * @param array|null $signers array with information about document signers. Format:
+     *       [
+     *           [ 'id' => 'signer1', 'name' => 'Kraft', 'surname' => 'Lawrence', ... ],
+     *           [ 'id' => 'signer2', 'name' => 'Fleur', 'surname' => 'Boland', ... ],
+     *           ...
+     *       ]
+     *       The value of `id` is entirely up to you. It is used to refer to the signer afterwards,
+     *       e.g. when checking signing status, or removing signer from the signing.
+     *       For all supported signer properties, check out the API method documentation.
+     * @param string|null $postbackUrl postback URL
+     * @param string|null $language code of language to be used when communicating with the signer.
+     *       Currently supported values: en, et, is, lt, lv, ru.
+     * @param array|null $params Optional parameters per file type. E.g. for PDF:
+     *       [ 'level' => 'pades-ltv' ]
+     *       For all supported params, check out the API method documentation.
      */
     public function __construct(
         string $type,

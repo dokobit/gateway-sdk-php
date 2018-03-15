@@ -10,6 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Add new signers to signing.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_addsigner
  */
 class AddSigner implements QueryInterface
 {
@@ -21,7 +22,15 @@ class AddSigner implements QueryInterface
 
     /**
      * @param string $token signing token
-     * @param array $signers information about document signers
+     * @param array $signers information about document signers. Format:
+     *       [
+     *           [ 'id' => 'signer1', 'name' => 'Kraft', 'surname' => 'Lawrence', ... ],
+     *           [ 'id' => 'signer2', 'name' => 'Fleur', 'surname' => 'Boland', ... ],
+     *           ...
+     *       ]
+     *       The value of id is entirely up to you. It is used to refer to the signer afterwards,
+     *       e.g. when checking signing status, or removing signer from the signing.
+     *       For all supported signer properties, check out the API method documentation.
      */
     public function __construct(
         string $token,

@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check signing status.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_status
  */
 class Status implements QueryInterface
 {
@@ -16,7 +17,7 @@ class Status implements QueryInterface
     private $token;
 
     /**
-     * @param string $token
+     * @param string $token signing token
      */
     public function __construct(string $token)
     {

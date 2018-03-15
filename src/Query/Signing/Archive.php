@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Archive a signing.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_archive
  */
 class Archive implements QueryInterface
 {
@@ -18,8 +19,9 @@ class Archive implements QueryInterface
     private $posbackUrl;
 
     /**
-     * @param string $type signing token
-     * @param string $postbackUrl postback URL
+     * @param string $token signing token
+     * @param string|null $postbackUrl postback URL. If not specified here,
+     *                    the one sent during signing creation will be used.
      */
     public function __construct(
         string $token,

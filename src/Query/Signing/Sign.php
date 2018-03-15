@@ -7,7 +7,8 @@ use Isign\Gateway\Result\Signing\SignResult;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Sign file via API.
+ * Sign a signing via API.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_sign
  */
 class Sign implements QueryInterface
 {

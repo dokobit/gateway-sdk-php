@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Upload a file to Gateway.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_file_upload
  */
 class Upload implements QueryInterface
 {
@@ -16,12 +17,13 @@ class Upload implements QueryInterface
     /** @var string path of the file to be uploded */
     private $path;
 
-    /** @var string|null file name which should be sent to Gateway */
+    /** @var string|null file name which will be sent to Gateway */
     private $filename;
 
     /**
      * @param string $path path of the file to be uploded
-     * @param ?string $filename file name which should be sent to Gateway
+     * @param string|null $filename file name which will be sent to Gateway.
+     *                    If null or not set, original file name will be sent.
      */
     public function __construct(string $path, ?string $filename = null)
     {

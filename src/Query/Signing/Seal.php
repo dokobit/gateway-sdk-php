@@ -8,17 +8,18 @@ use Isign\Gateway\SigningPurposeProvider;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Upload a file to Gateway.
+ * Seal a document with an e-seal.
+ * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_seal
  */
 class Seal implements QueryInterface
 {
     /** @var string signing token */
     private $token;
 
-    /** @var string signing name */
+    /** @var string name displayed to users in signing view */
     private $name;
 
-    /** @var string Signing purpose */
+    /** @var string signing purpose */
     private $signing_purpose;
 
     /** @var string document type */
@@ -28,10 +29,19 @@ class Seal implements QueryInterface
     private $params;
 
     /**
-     * @param string $token
-     * @param string $name document name
-     * @param string|null $signing_purpose optional
-     * @param array|null $params Optional parameters per file type (currently only PDF params are supported)
+     * @param string $token signing token
+     * @param string $name name displayed to users in signing view
+     * @param string|null $signing_purpose signing purpose (optional)
+     * @param array|null $params Optional parameters per file type.
+     *        Currently only PDF annotation parameters are supported. Example:
+     *        [
+     *            annotation => [
+     *                'page' => 1,
+     *                'top' => 100,
+     *                'left' => 100,
+     *                ...
+     *            ],
+     *        ]
      */
     public function __construct(
         string $token,
