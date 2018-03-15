@@ -189,6 +189,33 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * The client has a few methods to generate view URLs. This tests them.
+     */
+    public function testGetViewUrls()
+    {
+        $client = Client::create(['sandbox' => true, 'apiKey' => 'xxx']);
+
+        $signingToken = 'MyToken123';
+        $accessToken = 'MyAccessToken';
+        $this->assertSame(
+            'https://gateway-sandbox.isign.io/open/'.$signingToken,
+            $client->getOpenUrl($signingToken)
+        );
+        $this->assertSame(
+            'https://gateway-sandbox.isign.io/signing/'.$signingToken.'?access_token='.$accessToken,
+            $client->getSigningUrl($signingToken, $accessToken)
+        );
+        $this->assertSame(
+            'https://gateway-sandbox.isign.io/signing/batch/'.$signingToken,
+            $client->getBatchSigningUrl($signingToken)
+        );
+        $this->assertSame(
+            'https://gateway-sandbox.isign.io/signing/sequence/'.$signingToken,
+            $client->getSequenceSigningUrl($signingToken)
+        );
+    }
+
+    /**
      * @expectedException Isign\Gateway\Exception\QueryValidator
      * @expectedExceptionMessage Query parameters validation failed
      */
