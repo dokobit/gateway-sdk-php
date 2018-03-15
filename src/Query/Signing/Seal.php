@@ -22,9 +22,6 @@ class Seal implements QueryInterface
     /** @var string signing purpose */
     private $signing_purpose;
 
-    /** @var string document type */
-    private $type;
-
     /** @var array PDF-specific options */
     private $params;
 
