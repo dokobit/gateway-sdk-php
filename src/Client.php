@@ -19,7 +19,7 @@ class Client
     /** @var boolean use sandbox */
     private $sandbox = false;
 
-    /** @var string API access key, given by ISIGN.io administrators */
+    /** @var string API access key, provided by ISIGN administrators */
     private $apiKey = null;
 
     /** @var string production API URL */
