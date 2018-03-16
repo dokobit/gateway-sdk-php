@@ -36,7 +36,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
 
         $this->clientStub = $this->getMockBuilder('Isign\Gateway\Http\ClientInterface')
-            ->setMethods(['sendRequest'])
+            ->setMethods(['requestJson', 'requestBody', 'sendRequest'])
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -175,7 +175,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $this->clientStub
             ->expects($this->once())
-            ->method('sendRequest')
+            ->method('requestJson')
             ->willReturn([])
         ;
 

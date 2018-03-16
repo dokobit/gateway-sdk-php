@@ -52,7 +52,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -91,7 +91,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->method('createRequest')
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -126,7 +126,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -161,7 +161,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -196,7 +196,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -231,7 +231,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 
     /**
@@ -251,6 +251,6 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->sendRequest('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
     }
 }
