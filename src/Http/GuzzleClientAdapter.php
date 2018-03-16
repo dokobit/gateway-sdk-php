@@ -2,6 +2,7 @@
 namespace Isign\Gateway\Http;
 
 use GuzzleHttp;
+use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use Isign\Gateway\Exception;
 
@@ -23,40 +24,89 @@ class GuzzleClientAdapter implements ClientInterface
     }
 
     /**
-     * Send HTTP request
+     * Send HTTP request and return response body
      * @param string $method POST|GET
      * @param string $url http URL
      * @param array $options query options. Query values goes under 'body' key.
-     * Example:
-     * $options = [
-     *     'query' => [
-     *         'access_token' => 'foobar',
-     *     ],
-     *     'body' => [
-     *         'param1' => 'value1',
-     *         'param2' => 'value2',
-     *     ]
-     * ]
-     * @param bool $expectJson whether JSON response is expected
+     *         Example:
+     *         $options = [
+     *             'query' => [
+     *                 'access_token' => 'foobar',
+     *             ],
+     *             'body' => [
+     *                 'param1' => 'value1',
+     *                 'param2' => 'value2',
+     *             ]
+     *         ]
+     * @return string
+     */
+    public function requestBody(
+        string $method,
+        string $url,
+        array $options = []
+    ): ?string {
+        $response = $this->sendRequest($method, $url, $options);
+
+        return $response->getBody();
+    }
+
+    /**
+     * Send HTTP request and return response JSON parsed into array
+     * @param string $method POST|GET
+     * @param string $url http URL
+     * @param array $options query options. Query values goes under 'body' key.
+     *         Example:
+     *         $options = [
+     *             'query' => [
+     *                 'access_token' => 'foobar',
+     *             ],
+     *             'body' => [
+     *                 'param1' => 'value1',
+     *                 'param2' => 'value2',
+     *             ]
+     *         ]
      * @return array
      */
-    public function sendRequest(
+    public function requestJson(
+        string $method,
+        string $url,
+        array $options = []
+    ): ?array {
+        $response = $this->sendRequest($method, $url, $options);
+
+        return $response->json();
+    }
+
+    /**
+     * Actually send the HTTP request and return its response object
+     * @param string $method POST|GET
+     * @param string $url http URL
+     * @param array $options query options. Query values goes under 'body' key.
+     *         Example:
+     *         $options = [
+     *             'query' => [
+     *                 'access_token' => 'foobar',
+     *             ],
+     *             'body' => [
+     *                 'param1' => 'value1',
+     *                 'param2' => 'value2',
+     *             ]
+     *         ]
+     * @return ResponseInterface
+     */
+    protected function sendRequest(
         string $method,
         string $url,
         array $options = [],
         bool $expectJson = true
-    ): array {
+    ): ResponseInterface {
         $result = [];
 
         try {
             $response = $this->client->send(
                 $this->client->createRequest($method, $url, $options)
             );
-            if ($expectJson) {
-                $result = $response->json();
-            } else {
-                $result = [ 'body' => $response->getBody() ];
-            }
+            return $response;
         } catch (BadResponseException $e) {
             if ($e->getCode() == 400) {
                 throw new Exception\InvalidData(
@@ -104,7 +154,5 @@ class GuzzleClientAdapter implements ClientInterface
         } catch (\Exception $e) {
             throw new Exception\UnexpectedError('Unexpected error occurred', 0, $e);
         }
-
-        return $result;
     }
 }

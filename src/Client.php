@@ -246,7 +246,7 @@ class Client
             $url .= '?access_token=' . $this->apiKey;
         }
 
-        $this->client->sendRequest(QueryInterface::GET, $url, ['save_to' => $path], false);
+        $this->client->requestBody(QueryInterface::GET, $url, ['save_to' => $path]);
     }
 
     /**
@@ -254,9 +254,9 @@ class Client
      * @param string $method
      * @param string $url
      * @param array $fields
-     * @return array
+     * @return array|null
      */
-    private function request(string $method, string $url, array $fields): array
+    private function request(string $method, string $url, array $fields): ?array
     {
 
         $options = [
@@ -266,7 +266,7 @@ class Client
             'body' => $fields,
         ];
 
-        return $this->client->sendRequest($method, $url, $options);
+        return $this->client->requestJson($method, $url, $options);
     }
 
     /**
