@@ -4,6 +4,7 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/badges/quality-score.png?b=develop)](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/?branch=develop)
 [![Code Coverage](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/?branch=develop)
 [![Build Status](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/badges/build.png?b=develop)](https://scrutinizer-ci.com/g/isign/gateway-sdk-php/build-status/master)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/595451cf-9f3f-4b9c-bf77-6b9aab07ec06/mini.png)](https://insight.sensiolabs.com/projects/595451cf-9f3f-4b9c-bf77-6b9aab07ec06)
 
 ## How to start?
 
@@ -71,8 +72,3 @@ Running integrational tests only:
 Running single testcase:
 
     phpunit tests/Integration/CheckTest.php
-
-
-## TODO
-
-    - Add 'mobile/sign/hash.json' support
