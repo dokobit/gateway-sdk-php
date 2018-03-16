@@ -72,8 +72,3 @@ Running integrational tests only:
 Running single testcase:
 
     phpunit tests/Integration/CheckTest.php
-
-
-## TODO
-
-    - Add 'mobile/sign/hash.json' support
