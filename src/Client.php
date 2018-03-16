@@ -19,7 +19,7 @@ class Client
     /** @var boolean use sandbox */
     private $sandbox = false;
 
-    /** @var string API access key, given by ISIGN.io administrators */
+    /** @var string API access key, provided by ISIGN administrators */
     private $apiKey = null;
 
     /** @var string production API URL */
@@ -230,13 +230,33 @@ class Client
     }
 
     /**
+     * Download signed file from a given URL and place it in the specified path.
+     *
+     * @param string $url URL to download.
+     * @param string $path Path to download the file to.
+     * @param bool $sendAccessToken Set this to false if you do not want access token appended to the URL automatically.
+     *             Defaults to true.
+     */
+    public function downloadFile(
+        string $url,
+        string $path,
+        ?bool $sendAccessToken = true
+    ): void {
+        if ($sendAccessToken) {
+            $url .= '?access_token=' . $this->apiKey;
+        }
+
+        $this->client->requestBody(QueryInterface::GET, $url, ['save_to' => $path]);
+    }
+
+    /**
      * Handle request options and perform HTTP request using HTTP client.
      * @param string $method
      * @param string $url
      * @param array $fields
-     * @return array
+     * @return array|null
      */
-    private function request(string $method, string $url, array $fields): array
+    private function request(string $method, string $url, array $fields): ?array
     {
 
         $options = [
@@ -246,7 +266,7 @@ class Client
             'body' => $fields,
         ];
 
-        return $this->client->sendRequest($method, $url, $options);
+        return $this->client->requestJson($method, $url, $options);
     }
 
     /**
