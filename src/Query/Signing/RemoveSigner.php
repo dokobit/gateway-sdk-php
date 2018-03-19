@@ -16,7 +16,7 @@ class RemoveSigner implements QueryInterface
     /** @var string signing token */
     private $token;
 
-    /** @var string information about document signers */
+    /** @var array information about document signers */
     private $signers;
 
     /**

@@ -44,10 +44,10 @@ class GuzzleClientAdapter implements ClientInterface
         string $method,
         string $url,
         array $options = []
-    ): ?string {
+    ): string {
         $response = $this->sendRequest($method, $url, $options);
 
-        return $response->getBody();
+        return (string)$response->getBody();
     }
 
     /**
@@ -97,15 +97,13 @@ class GuzzleClientAdapter implements ClientInterface
     protected function sendRequest(
         string $method,
         string $url,
-        array $options = [],
-        bool $expectJson = true
+        array $options = []
     ): ResponseInterface {
-        $result = [];
-
         try {
             $response = $this->client->send(
                 $this->client->createRequest($method, $url, $options)
             );
+
             return $response;
         } catch (BadResponseException $e) {
             if ($e->getCode() == 400) {

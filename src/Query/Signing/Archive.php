@@ -16,7 +16,7 @@ class Archive implements QueryInterface
     private $token;
 
     /** @var string postback URL, if specified */
-    private $posbackUrl;
+    private $postbackUrl;
 
     /**
      * @param string $token signing token
