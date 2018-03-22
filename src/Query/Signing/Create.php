@@ -32,7 +32,7 @@ class Create implements QueryInterface
     private $signers;
 
     /** @var string|null postback URL, if specified */
-    private $posbackUrl;
+    private $postbackUrl;
 
     /** @var string|null preferred Gateway UI language, if specified */
     private $language;
