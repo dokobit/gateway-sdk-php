@@ -240,7 +240,7 @@ class Client
     public function downloadFile(
         string $url,
         string $path,
-        ?bool $sendAccessToken = true
+        bool $sendAccessToken = true
     ): void {
         if ($sendAccessToken) {
             $url .= '?access_token=' . $this->apiKey;
