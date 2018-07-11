@@ -15,7 +15,7 @@ class GuzzleClientAdapter implements ClientInterface
     protected $client;
 
     /**
-     * @param type GuzzleHttp\ClientInterface $client
+     * @param GuzzleHttp\ClientInterface $client
      * @return self
      */
     public function __construct(GuzzleHttp\ClientInterface $client)
@@ -73,8 +73,9 @@ class GuzzleClientAdapter implements ClientInterface
         array $options = []
     ): ?array {
         $response = $this->sendRequest($method, $url, $options);
+        $response = json_decode($response->getBody()->getContents(), true);
 
-        return $response->json();
+        return $response;
     }
 
     /**
@@ -97,15 +98,13 @@ class GuzzleClientAdapter implements ClientInterface
     protected function sendRequest(
         string $method,
         string $url,
-        array $options = [],
-        bool $expectJson = true
-    ): ResponseInterface {
+        array $options = []
+    ) {
         $result = [];
 
         try {
-            $response = $this->client->send(
-                $this->client->createRequest($method, $url, $options)
-            );
+            $response = $this->client->request($method, $url, $options);
+
             return $response;
         } catch (BadResponseException $e) {
             if ($e->getCode() == 400) {
@@ -113,7 +112,7 @@ class GuzzleClientAdapter implements ClientInterface
                     'Data validation failed',
                     400,
                     $e,
-                    $e->getResponse()->json()
+                    json_decode($e->getResponse()->getBody()->getContents(), true)
                 );
             } elseif ($e->getCode() == 403) {
                 throw new Exception\InvalidApiKey(
