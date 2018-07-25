@@ -57,12 +57,20 @@ class Upload implements QueryInterface
     public function getValidationConstraints(): Assert\Collection
     {
         return new Assert\Collection([
-            'file' => new Assert\Required(
-                [new Assert\NotBlank()]
-            ),
-            'filename' => new Assert\Optional(
-                [new Assert\NotBlank()]
-            ),
+            'file' => new Assert\Required([
+                new Assert\NotBlank(),
+                new Assert\Collection([
+                    'name' => new Assert\Required([
+                        new Assert\NotBlank(),
+                    ]),
+                    'content' => new Assert\Required([
+                        new Assert\NotBlank(),
+                    ]),
+                    'digest' => new Assert\Required([
+                        new Assert\NotBlank(),
+                    ]),
+                ]),
+            ]),
         ]);
     }
 
