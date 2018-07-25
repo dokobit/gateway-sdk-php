@@ -2,9 +2,9 @@
 namespace Isign\Gateway\Http;
 
 use GuzzleHttp;
-use GuzzleHttp\Message\ResponseInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use Isign\Gateway\Exception;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Adapter for GuzzleHttp client
@@ -99,7 +99,7 @@ class GuzzleClientAdapter implements ClientInterface
         string $method,
         string $url,
         array $options = []
-    ) {
+    ): ResponseInterface {
         $result = [];
 
         try {
