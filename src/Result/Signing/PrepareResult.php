@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway\Result\Signing;
+namespace Dokobit\Gateway\Result\Signing;
 
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Result\ResultInterface;
 
 /**
  * Result object for signing/{token}/prepare response.

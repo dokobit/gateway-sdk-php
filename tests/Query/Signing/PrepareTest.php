@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\Signing;
+namespace Dokobit\Gateway\Tests\Query\Signing;
 
-use Isign\Gateway\Query\Signing\Prepare;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\Signing\Prepare;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class PrepareTest extends TestCase
 {
@@ -48,7 +48,7 @@ class PrepareTest extends TestCase
 
     public function testPrepareResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\Signing\PrepareResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\Signing\PrepareResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

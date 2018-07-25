@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Result;
+namespace Dokobit\Gateway\Result;
 
 /**
  * Result interface for building result objects.

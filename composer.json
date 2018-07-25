@@ -18,12 +18,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Isign\\Gateway\\": "src/"
+            "Dokobit\\Gateway\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Isign\\Gateway\\Tests\\": "tests/"
+            "Dokobit\\Gateway\\Tests\\": "tests/"
         }
     },
     "config": {

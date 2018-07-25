@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Gateway\Tests;
+namespace Dokobit\Gateway\Tests;
 
-use Isign\Gateway\SigningPurposeProvider;
+use Dokobit\Gateway\SigningPurposeProvider;
 
 class SigningPurposeProviderTest extends TestCase
 {
     public function testGetAllSigningPurposes()
     {
 
-        $ref = new \ReflectionClass('Isign\Gateway\SigningPurposeProvider');
+        $ref = new \ReflectionClass('Dokobit\Gateway\SigningPurposeProvider');
         $this->assertEquals(count($ref->getConstants()), count(SigningPurposeProvider::getAllSigningPurposes()));
     }
 }

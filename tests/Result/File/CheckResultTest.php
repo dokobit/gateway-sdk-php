@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Result\File;
+namespace Dokobit\Gateway\Tests\Result\File;
 
-use Isign\Gateway\Result\File\CheckResult;
-use Isign\Gateway\Tests\TestCase;
-use Isign\Gateway\Tests\Result\TestResultFieldsTrait;
+use Dokobit\Gateway\Result\File\CheckResult;
+use Dokobit\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Tests\Result\TestResultFieldsTrait;
 
 class CheckResultTest extends TestCase
 {

@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Result\File;
+namespace Dokobit\Gateway\Tests\Result\File;
 
-use Isign\Gateway\Result\File\UploadStatusResult;
-use Isign\Gateway\Tests\TestCase;
-use Isign\Gateway\Tests\Result\TestResultFieldsTrait;
+use Dokobit\Gateway\Result\File\UploadStatusResult;
+use Dokobit\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Tests\Result\TestResultFieldsTrait;
 
 class UploadStatusResultTest extends TestCase
 {

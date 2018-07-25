@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Gateway\Query\Signing;
+namespace Dokobit\Gateway\Query\Signing;
 
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Result\ResultInterface;
-use Isign\Gateway\Result\Signing\CreateBatchResult;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Result\Signing\CreateBatchResult;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Create a batch signing.
- * @see https://gateway-sandbox.isign.io/api/doc#_api_signing_createbatch
+ * @see https://gateway-sandbox.dokobit.com/api/doc#_api_signing_createbatch
  */
 class CreateBatch implements QueryInterface
 {

@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Gateway\Tests;
+namespace Dokobit\Gateway\Tests;
 
-use Isign\Gateway\DocumentTypeProvider;
+use Dokobit\Gateway\DocumentTypeProvider;
 
 class DocumentTypeProviderTest extends TestCase
 {
     public function testGetAllDocumentTypes()
     {
 
-        $ref = new \ReflectionClass('Isign\Gateway\DocumentTypeProvider');
+        $ref = new \ReflectionClass('Dokobit\Gateway\DocumentTypeProvider');
         $this->assertEquals(count($ref->getConstants()) - 1, count(DocumentTypeProvider::getAllDocumentTypes())); // -1 due to 'asic' not really being a separate file type
     }
 

@@ -1,14 +1,14 @@
 <?php
-namespace Isign\Gateway\Query\File;
+namespace Dokobit\Gateway\Query\File;
 
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Result\File\UploadResult;
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Result\File\UploadResult;
+use Dokobit\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Upload a file to Gateway.
- * @see https://gateway-sandbox.isign.io/api/doc#_api_file_upload
+ * @see https://gateway-sandbox.dokobit.com/api/doc#_api_file_upload
  */
 class Upload implements QueryInterface
 {

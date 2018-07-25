@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway;
+namespace Dokobit\Gateway;
 
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Result\ResultInterface;
 
 /**
  * Mapping response array to result objects

@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\Signing;
+namespace Dokobit\Gateway\Tests\Integration\Signing;
 
-use Isign\Gateway\Query\Signing\Prepare;
-use Isign\Gateway\Query\Signing\Sign;
-use Isign\Gateway\Result\Signing\PrepareResult;
-use Isign\Gateway\Result\Signing\SignResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\Signing\Prepare;
+use Dokobit\Gateway\Query\Signing\Sign;
+use Dokobit\Gateway\Result\Signing\PrepareResult;
+use Dokobit\Gateway\Result\Signing\SignResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class PrepareTest extends TestCase
 {

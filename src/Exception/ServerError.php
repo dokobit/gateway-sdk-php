@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Exception;
+namespace Dokobit\Gateway\Exception;
 
 /**
  * Error occurred on server side while handling request
