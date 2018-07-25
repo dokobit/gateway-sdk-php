@@ -9,7 +9,7 @@ This library makes it easier to integrate [Dokobit Gateway API](https://www.doko
 
 ## How to start?
 
-1. Instantiate the client object:
+1. Instantiate a client object:
     ```php
     use Dokobit\Gateway\Client;
 
@@ -35,7 +35,7 @@ This library makes it easier to integrate [Dokobit Gateway API](https://www.doko
     ], $log);
     ```
 
-2. Use the client instantiated above to make the desired API calls. To do that, instantiate a respective request object and pass it to the client. For example, to upload a file to Gateway:
+2. Use the client instantiated above to make the desired API calls. To do that, instantiate a respective request object and pass it to the `get()` method of the client. For example, to upload a file to Gateway:
     ```php
     use Dokobit\Gateway\Query\File\Upload;
 
