@@ -22,12 +22,17 @@ This library makes it easier to integrate [Dokobit Gateway API](https://www.doko
     If you want to log requests, just pass a PSR-3 `LoggerInterface` compatible logger (such as a [Monolog](https://github.com/Seldaek/monolog) instance) as the second parameter to the `create()` method, like this:
     ```php
     use Dokobit\Gateway\Client;
+    use Monolog\Handler\StreamHandler;
+    use Monolog\Logger;
 
     // <...>
+    $log = new Logger('requests');
+    $log->pushHandler(new StreamHandler(__DIR__ . '/path/to/info.log', Logger::INFO));
+
     $client = Client::create([
         'apiKey' => 'xxxxxx',
         'sandbox' => true,
-    ], $logger);
+    ], $log);
     ```
 
 2. Use the client instantiated above to make the desired API calls. To do that, instantiate a respective request object and pass it to the client. For example, to upload a file to Gateway:
