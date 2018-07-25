@@ -256,7 +256,7 @@ class Client
             $url .= '?access_token=' . $this->apiKey;
         }
 
-        $this->client->requestJson(QueryInterface::GET, $url, ['save_to' => $path]);
+        $this->client->requestBody(QueryInterface::GET, $url, ['save_to' => $path]);
     }
 
     /**
