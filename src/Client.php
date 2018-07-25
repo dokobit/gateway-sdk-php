@@ -6,10 +6,12 @@ use Isign\Gateway\Http\ClientInterface;
 use Isign\Gateway\Http\GuzzleClientAdapter;
 use Isign\Gateway\Query\QueryInterface;
 use Isign\Gateway\Result\ResultInterface;
-use GuzzleHttp\Subscriber\Log\LogSubscriber;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\MessageFormatter;
 
 /**
  * ISIGN Gateway client
@@ -67,21 +69,29 @@ class Client
      *     'url' => 'https://gateway.isign.io',
      *     'sandboxUrl' => 'https://gateway-sandbox.isign.io',
      * ]
-     * @param LoggerInterface|callable|resource|null $logger Logger used to log
-     *     messages. Pass a LoggerInterface to use a PSR-3 logger. Pass a
-     *     callable to log messages to a function that accepts a string of
-     *     data. Pass a resource returned from ``fopen()`` to log to an open
-     *     resource. Pass null or leave empty to write log messages using
-     *     ``echo()``.
+     * @param LoggerInterface|null $logger Logger used to log
+     *     messages. Pass a LoggerInterface to use a PSR-3 logger.
+     *     Pass null or leave empty to disable logging.
      * @return self
      */
-    public static function create(array $options = [], $log = false): self
+    public static function create(array $options = [], LoggerInterface $logger = null)
     {
         $client = new \GuzzleHttp\Client();
 
-        if ($log !== false) {
-            $subscriber = new LogSubscriber($log);
-            $client->getEmitter()->attach($subscriber);
+        if ($logger !== null) {
+            $stack = HandlerStack::create();
+            $stack->push(
+                Middleware::log(
+                    $logger,
+                    new MessageFormatter()
+                )
+            );
+
+            $client = new \GuzzleHttp\Client(
+                [
+                    'handler' => $stack,
+                ]
+            );
         }
 
         return new self(
@@ -240,7 +250,7 @@ class Client
     public function downloadFile(
         string $url,
         string $path,
-        ?bool $sendAccessToken = true
+        bool $sendAccessToken = true
     ): void {
         if ($sendAccessToken) {
             $url .= '?access_token=' . $this->apiKey;
@@ -263,7 +273,7 @@ class Client
             'query' => [
                 'access_token' => $this->getApiKey()
             ],
-            'body' => $fields,
+            'json' => $fields,
         ];
 
         return $this->client->requestJson($method, $url, $options);

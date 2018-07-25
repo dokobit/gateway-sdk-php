@@ -6,8 +6,6 @@ use Isign\Gateway\Query\File\Upload;
 use Isign\Gateway\Query\Signing\Create;
 use Isign\Gateway\Result\File\UploadResult;
 use Isign\Gateway\Result\Signing\CreateResult;
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
 
 /**
  * Base test case
@@ -40,9 +38,10 @@ class TestCase extends \PHPUnit_Framework_TestCase
             $params['sandboxUrl'] = SANDBOX_URL;
         }
 
-        $log = false;
+        $log = null;
         // Uncomment to enable request/response debugging
-        // $log = null;
+        // $log = new \Monolog\Logger('test');
+        // $log->pushHandler(new \Monolog\Handler\StreamHandler('php://stdout'));
 
         $this->client = Client::create($params, $log);
     }
