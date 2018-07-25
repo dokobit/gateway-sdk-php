@@ -45,7 +45,7 @@ This library makes it easier to integrate [Dokobit Gateway API](https://www.doko
     echo $result->getStatus(); // Request status
     echo $result->getToken(); // Uploaded file token
     ```
-    Should the request fail for any reason, you'll get an Exception which should help you debug the issue.
+    The client performs an HTTP request and returns a result object, which has getters for all response fields. Should the request fail for any reason, an exception will be thrown, which should help you debug the issue.
 
 The request (query) and response (result) classes closely mirror the API calls, which are documented at https://gateway-sandbox.dokobit.com/api/doc.
 
