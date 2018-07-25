@@ -8,8 +8,7 @@
 
     "require": {
         "php"                       : ">=7.0.0",
-        "guzzlehttp/guzzle"         : "~5.3",
-        "guzzlehttp/log-subscriber" : "~1.0",
+        "guzzlehttp/guzzle"         : "^6.3.3",
         "symfony/validator"         : "~3.2|~4.0"
     },
     "require-dev": {
