@@ -273,7 +273,7 @@ class Client
             'query' => [
                 'access_token' => $this->getApiKey()
             ],
-            'form_params' => $fields,
+            'json' => $fields,
         ];
 
         return $this->client->requestJson($method, $url, $options);
