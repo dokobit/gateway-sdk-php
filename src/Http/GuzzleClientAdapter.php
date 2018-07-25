@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Http;
+namespace Dokobit\Gateway\Http;
 
 use GuzzleHttp;
 use GuzzleHttp\Exception\BadResponseException;
-use Isign\Gateway\Exception;
+use Dokobit\Gateway\Exception;
 use Psr\Http\Message\ResponseInterface;
 
 /**
@@ -44,10 +44,10 @@ class GuzzleClientAdapter implements ClientInterface
         string $method,
         string $url,
         array $options = []
-    ): ?string {
+    ): string {
         $response = $this->sendRequest($method, $url, $options);
 
-        return $response->getBody();
+        return (string)$response->getBody();
     }
 
     /**
@@ -100,8 +100,6 @@ class GuzzleClientAdapter implements ClientInterface
         string $url,
         array $options = []
     ): ResponseInterface {
-        $result = [];
-
         try {
             $response = $this->client->request($method, $url, $options);
 

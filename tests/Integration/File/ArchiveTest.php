@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\File;
+namespace Dokobit\Gateway\Tests\Integration\File;
 
-use Isign\Gateway\Query\File\Archive;
-use Isign\Gateway\Result\File\ArchiveResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\File\Archive;
+use Dokobit\Gateway\Result\File\ArchiveResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class ArchiveTest extends TestCase
 {

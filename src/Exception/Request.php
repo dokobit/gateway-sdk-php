@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Exception;
+namespace Dokobit\Gateway\Exception;
 
 /**
  * Base exception for request errors

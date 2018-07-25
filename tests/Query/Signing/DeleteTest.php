@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\Signing;
+namespace Dokobit\Gateway\Tests\Query\Signing;
 
-use Isign\Gateway\Query\Signing\Delete;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\Signing\Delete;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class DeleteTest extends TestCase
 {
@@ -40,7 +40,7 @@ class DeleteTest extends TestCase
 
     public function testDeleteResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\Signing\DeleteResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\Signing\DeleteResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

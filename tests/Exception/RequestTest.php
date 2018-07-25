@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway\Tests\Exception;
+namespace Dokobit\Gateway\Tests\Exception;
 
-use Isign\Gateway\Exception\InvalidData;
+use Dokobit\Gateway\Exception\InvalidData;
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {

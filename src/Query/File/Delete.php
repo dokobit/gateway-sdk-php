@@ -1,15 +1,15 @@
 <?php
-namespace Isign\Gateway\Query\File;
+namespace Dokobit\Gateway\Query\File;
 
-use Isign\Gateway\DocumentTypeProvider;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Result\File\DeleteResult;
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\DocumentTypeProvider;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Result\File\DeleteResult;
+use Dokobit\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Check upload status.
- * @see https://gateway-sandbox.isign.io/api/doc#_api_file_delete
+ * @see https://gateway-sandbox.dokobit.com/api/doc#_api_file_delete
  */
 class Delete implements QueryInterface
 {

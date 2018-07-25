@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Tests;
+namespace Dokobit\Gateway\Tests;
 
 /**
  * Base test case

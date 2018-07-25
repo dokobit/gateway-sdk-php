@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\File;
+namespace Dokobit\Gateway\Tests\Query\File;
 
-use Isign\Gateway\Query\File\Archive;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\File\Archive;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class ArchiveTest extends TestCase
 {
@@ -79,7 +79,7 @@ class ArchiveTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\File\ArchiveResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\File\ArchiveResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

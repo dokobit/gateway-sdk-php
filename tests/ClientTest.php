@@ -1,17 +1,17 @@
 <?php
-namespace Isign\Gateway\Tests;
+namespace Dokobit\Gateway\Tests;
 
-use Isign\Gateway\Client;
+use Dokobit\Gateway\Client;
 
 class ClientTest extends \PHPUnit_Framework_TestCase
 {
-    /** @var Isign\Gateway\Query\QueryInterface */
+    /** @var Dokobit\Gateway\Query\QueryInterface */
     private $methodStub;
 
-    /** @var Isign\Gateway\Http\ClientInterface */
+    /** @var Dokobit\Gateway\Http\ClientInterface */
     private $clientStub;
 
-    /** @var Isign\Gateway\ResponseMapperInterface */
+    /** @var Dokobit\Gateway\ResponseMapperInterface */
     private $responseMapperStub;
 
     /** @var Symfony\Component\Validator\Validator */
@@ -22,7 +22,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->methodStub = $this->getMockBuilder('Isign\Gateway\Query\QueryInterface')
+        $this->methodStub = $this->getMockBuilder('Dokobit\Gateway\Query\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -35,12 +35,12 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         ;
 
 
-        $this->clientStub = $this->getMockBuilder('Isign\Gateway\Http\ClientInterface')
+        $this->clientStub = $this->getMockBuilder('Dokobit\Gateway\Http\ClientInterface')
             ->setMethods(['requestJson', 'requestBody', 'sendRequest'])
             ->disableOriginalConstructor()
             ->getMock();
 
-        $this->responseMapperStub = $this->getMockBuilder('Isign\Gateway\ResponseMapperInterface')
+        $this->responseMapperStub = $this->getMockBuilder('Dokobit\Gateway\ResponseMapperInterface')
             ->setMethods(['map'])
             ->disableOriginalConstructor()
             ->getMock();
@@ -61,7 +61,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testFactoryCreate()
     {
         $client = Client::create(['sandbox' => true, 'apiKey' => 'xxx']);
-        $this->assertInstanceOf('Isign\Gateway\Client', $client);
+        $this->assertInstanceOf('Dokobit\Gateway\Client', $client);
         $this->assertTrue($client->isSandbox());
     }
 
@@ -74,7 +74,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['sandbox' => true, 'apiKey' => 'xxx'],
             $logger
         );
-        $this->assertInstanceOf('Isign\Gateway\Client', $client);
+        $this->assertInstanceOf('Dokobit\Gateway\Client', $client);
     }
 
     public function testDefaultClientConfiguration()
@@ -88,7 +88,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
         $this->assertSame(false, $client->isSandbox());
         $this->assertSame('https://gateway.isign.io', $client->getUrl());
-        $this->assertSame('https://gateway-sandbox.isign.io', $client->getSandboxUrl());
+        $this->assertSame('https://gateway-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
     public function testCustomClientConfiguration()
@@ -100,18 +100,18 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             [
                 'sandbox' => true,
                 'apiKey' => 'l33t',
-                'url' => 'https://custom-api.isign.io',
-                'sandboxUrl' => 'https://custom-sandbox.isign.io',
+                'url' => 'https://custom-api.dokobit.com',
+                'sandboxUrl' => 'https://custom-sandbox.dokobit.com',
             ]
         );
         $this->assertSame(true, $client->isSandbox());
         $this->assertSame('l33t', $client->getApiKey());
-        $this->assertSame('https://custom-api.isign.io', $client->getUrl());
-        $this->assertSame('https://custom-sandbox.isign.io', $client->getSandboxUrl());
+        $this->assertSame('https://custom-api.dokobit.com', $client->getUrl());
+        $this->assertSame('https://custom-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\InvalidApiKey
+     * @expectedException Dokobit\Gateway\Exception\InvalidApiKey
      */
     public function testApiKeyRequired()
     {
@@ -139,7 +139,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     public function testGetFullMethodUrlForSandbox()
     {
         $this->assertEquals(
-            'https://gateway-sandbox.isign.io/api/archive.json',
+            'https://gateway-sandbox.dokobit.com/api/archive.json',
             $this->client->getFullMethodUrl('archive')
         );
     }
@@ -150,7 +150,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method('createResult')
             ->willReturn(
-                $this->getMockBuilder('Isign\Gateway\Result\ResultInterface')
+                $this->getMockBuilder('Dokobit\Gateway\Result\ResultInterface')
                     ->disableOriginalConstructor()
                     ->getMock()
             )
@@ -198,25 +198,25 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $signingToken = 'MyToken123';
         $accessToken = 'MyAccessToken';
         $this->assertSame(
-            'https://gateway-sandbox.isign.io/open/'.$signingToken,
+            'https://gateway-sandbox.dokobit.com/open/'.$signingToken,
             $client->getOpenUrl($signingToken)
         );
         $this->assertSame(
-            'https://gateway-sandbox.isign.io/signing/'.$signingToken.'?access_token='.$accessToken,
+            'https://gateway-sandbox.dokobit.com/signing/'.$signingToken.'?access_token='.$accessToken,
             $client->getSigningUrl($signingToken, $accessToken)
         );
         $this->assertSame(
-            'https://gateway-sandbox.isign.io/signing/batch/'.$signingToken,
+            'https://gateway-sandbox.dokobit.com/signing/batch/'.$signingToken,
             $client->getBatchSigningUrl($signingToken)
         );
         $this->assertSame(
-            'https://gateway-sandbox.isign.io/signing/sequence/'.$signingToken,
+            'https://gateway-sandbox.dokobit.com/signing/sequence/'.$signingToken,
             $client->getSequenceSigningUrl($signingToken)
         );
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\QueryValidator
+     * @expectedException Dokobit\Gateway\Exception\QueryValidator
      * @expectedExceptionMessage Query parameters validation failed
      */
     public function testGetValidationFailed()

@@ -1,9 +1,9 @@
 <?php
 
-namespace Isign\Gateway\Tests\Validator\Constraints;
+namespace Dokobit\Gateway\Tests\Validator\Constraints;
 
-use Isign\Gateway\Validator\Constraints\Phone;
-use Isign\Gateway\Validator\Constraints\PhoneValidator;
+use Dokobit\Gateway\Validator\Constraints\Phone;
+use Dokobit\Gateway\Validator\Constraints\PhoneValidator;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
@@ -83,7 +83,7 @@ class PhoneValidatorTest extends ConstraintValidatorTestCase
 
         $this->buildViolation('myMessage')
             ->setParameter('{{ value }}', '"'.$phone.'"')
-            ->setCode(defined('Isign\Gateway\Validator\Constraints\Phone::REGEX_FAILED_ERROR')?Phone::REGEX_FAILED_ERROR:null)
+            ->setCode(defined('Dokobit\Gateway\Validator\Constraints\Phone::REGEX_FAILED_ERROR')?Phone::REGEX_FAILED_ERROR:null)
             ->assertRaised();
     }
 

@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\Signing;
+namespace Dokobit\Gateway\Tests\Integration\Signing;
 
-use Isign\Gateway\Query\Signing\RemoveSigner;
-use Isign\Gateway\Result\Signing\RemoveSignerResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\Signing\RemoveSigner;
+use Dokobit\Gateway\Result\Signing\RemoveSignerResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class RemoveSignerTest extends TestCase
 {

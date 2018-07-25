@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\Signing;
+namespace Dokobit\Gateway\Tests\Query\Signing;
 
-use Isign\Gateway\Query\Signing\CreateBatch;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\Signing\CreateBatch;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class CreateBatchTest extends TestCase
 {
@@ -58,7 +58,7 @@ class CreateBatchTest extends TestCase
 
     public function testCreateBatchResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\Signing\CreateBatchResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\Signing\CreateBatchResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

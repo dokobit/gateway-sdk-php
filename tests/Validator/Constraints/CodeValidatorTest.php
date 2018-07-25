@@ -1,9 +1,9 @@
 <?php
 
-namespace Isign\Gateway\Tests\Validator\Constraints;
+namespace Dokobit\Gateway\Tests\Validator\Constraints;
 
-use Isign\Gateway\Validator\Constraints\Code;
-use Isign\Gateway\Validator\Constraints\CodeValidator;
+use Dokobit\Gateway\Validator\Constraints\Code;
+use Dokobit\Gateway\Validator\Constraints\CodeValidator;
 use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
 use Symfony\Component\Validator\Validation;
 
@@ -82,7 +82,7 @@ class CodeValidatorTest extends ConstraintValidatorTestCase
 
         $this->buildViolation('myMessage')
             ->setParameter('{{ value }}', '"'.$code.'"')
-            ->setCode(defined('Isign\Gateway\Validator\Constraints\Code::REGEX_FAILED_ERROR')?Code::REGEX_FAILED_ERROR:null)
+            ->setCode(defined('Dokobit\Gateway\Validator\Constraints\Code::REGEX_FAILED_ERROR')?Code::REGEX_FAILED_ERROR:null)
             ->assertRaised();
     }
 
