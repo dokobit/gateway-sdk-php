@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway\Tests\Exception;
+namespace Dokobit\Gateway\Tests\Exception;
 
-use Isign\Gateway\Exception\QueryValidator;
+use Dokobit\Gateway\Exception\QueryValidator;
 use Symfony\Component\Validator\ConstraintViolationList;
 
 class QueryValidatorTest extends \PHPUnit_Framework_TestCase

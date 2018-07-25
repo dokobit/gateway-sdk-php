@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\Signing;
+namespace Dokobit\Gateway\Tests\Integration\Signing;
 
-use Isign\Gateway\Query\Signing\Create;
-use Isign\Gateway\Result\Signing\CreateResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\Signing\Create;
+use Dokobit\Gateway\Result\Signing\CreateResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class CreateTest extends TestCase
 {

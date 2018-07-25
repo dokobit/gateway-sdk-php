@@ -1,11 +1,11 @@
 <?php
 
-namespace Isign\Gateway;
+namespace Dokobit\Gateway;
 
-use Isign\Gateway\Http\ClientInterface;
-use Isign\Gateway\Http\GuzzleClientAdapter;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Http\ClientInterface;
+use Dokobit\Gateway\Http\GuzzleClientAdapter;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Result\ResultInterface;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Validator\Validation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
@@ -14,21 +14,21 @@ use GuzzleHttp\Middleware;
 use GuzzleHttp\MessageFormatter;
 
 /**
- * ISIGN Gateway client
+ * Dokobit Gateway client
  */
 class Client
 {
     /** @var boolean use sandbox */
     private $sandbox = false;
 
-    /** @var string API access key, provided by ISIGN administrators */
+    /** @var string API access key provided by Dokobit */
     private $apiKey = null;
 
     /** @var string production API URL */
     private $url = 'https://gateway.isign.io';
 
     /** @var string sandbox mode API URL. Used if $sandbox is true */
-    private $sandboxUrl = 'https://gateway-sandbox.isign.io';
+    private $sandboxUrl = 'https://gateway-sandbox.dokobit.com';
 
     /** @var ClientInterface HTTP client */
     private $client;
@@ -67,7 +67,7 @@ class Client
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
      *     'url' => 'https://gateway.isign.io',
-     *     'sandboxUrl' => 'https://gateway-sandbox.isign.io',
+     *     'sandboxUrl' => 'https://gateway-sandbox.dokobit.com',
      * ]
      * @param LoggerInterface|null $logger Logger used to log
      *     messages. Pass a LoggerInterface to use a PSR-3 logger.

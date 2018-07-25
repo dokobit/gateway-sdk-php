@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\Signing;
+namespace Dokobit\Gateway\Tests\Integration\Signing;
 
-use Isign\Gateway\Query\Signing\Status;
-use Isign\Gateway\Result\Signing\StatusResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\Signing\Status;
+use Dokobit\Gateway\Result\Signing\StatusResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class StatusTest extends TestCase
 {

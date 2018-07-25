@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Query\File;
+namespace Dokobit\Gateway\Query\File;
 
 trait FileFieldsTrait
 {

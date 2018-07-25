@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Gateway\Tests\Integration;
+namespace Dokobit\Gateway\Tests\Integration;
 
-use Isign\Gateway\Client;
-use Isign\Gateway\Query\File\Upload;
-use Isign\Gateway\Query\Signing\Create;
-use Isign\Gateway\Result\File\UploadResult;
-use Isign\Gateway\Result\Signing\CreateResult;
+use Dokobit\Gateway\Client;
+use Dokobit\Gateway\Query\File\Upload;
+use Dokobit\Gateway\Query\Signing\Create;
+use Dokobit\Gateway\Result\File\UploadResult;
+use Dokobit\Gateway\Result\Signing\CreateResult;
 
 /**
  * Base test case

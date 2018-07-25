@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway\Result\File;
+namespace Dokobit\Gateway\Result\File;
 
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Result\ResultInterface;
 
 /**
  * Result object for archive response.

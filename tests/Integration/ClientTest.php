@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration;
+namespace Dokobit\Gateway\Tests\Integration;
 
 class ClientTest extends TestCase
 {
-    const TEST_FILE_URL = 'https://developers.isign.io/sc/test.pdf';
+    const TEST_FILE_URL = 'https://developers.dokobit.com/sc/test.pdf';
 
     public function testFileDownload()
     {

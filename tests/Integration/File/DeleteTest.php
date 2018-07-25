@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\File;
+namespace Dokobit\Gateway\Tests\Integration\File;
 
-use Isign\Gateway\Query\File\Delete;
-use Isign\Gateway\Result\File\DeleteResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\File\Delete;
+use Dokobit\Gateway\Result\File\DeleteResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class DeleteTest extends TestCase
 {

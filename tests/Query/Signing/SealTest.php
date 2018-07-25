@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\Signing;
+namespace Dokobit\Gateway\Tests\Query\Signing;
 
-use Isign\Gateway\Query\Signing\Seal;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\Signing\Seal;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class SealTest extends TestCase
 {
@@ -94,7 +94,7 @@ class SealTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\Signing\SealResult', $this->queryMinimal->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\Signing\SealResult', $this->queryMinimal->createResult());
     }
 
     public function testHasValidationConstraints()

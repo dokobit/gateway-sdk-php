@@ -1,5 +1,5 @@
 <?php
-namespace Isign\Gateway\Http;
+namespace Dokobit\Gateway\Http;
 
 interface ClientInterface
 {

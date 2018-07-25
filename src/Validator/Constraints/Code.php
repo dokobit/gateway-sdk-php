@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Gateway\Validator\Constraints;
+namespace Dokobit\Gateway\Validator\Constraints;
 
 use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Class Code
- * @package IsignApiBundle
+ * @package DokobitApiBundle
  */
 class Code extends Regex
 {

@@ -1,11 +1,11 @@
 <?php
-namespace Isign\Gateway\Tests\Http;
+namespace Dokobit\Gateway\Tests\Http;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\BufferStream;
 use GuzzleHttp\Psr7\Response;
-use Isign\Gateway\Http\GuzzleClientAdapter;
+use Dokobit\Gateway\Http\GuzzleClientAdapter;
 use Psr\Log\LoggerAwareInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -47,11 +47,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             ->willReturn($response)
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException \Isign\Gateway\Exception\InvalidData
+     * @expectedException \Dokobit\Gateway\Exception\InvalidData
      * @expectedExceptionCode 400
      */
     public function testDataValidationError400()
@@ -82,11 +82,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\InvalidApiKey
+     * @expectedException Dokobit\Gateway\Exception\InvalidApiKey
      * @expectedExceptionCode 403
      */
     public function testInvalidApiKeyError403()
@@ -117,11 +117,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\ServerError
+     * @expectedException Dokobit\Gateway\Exception\ServerError
      * @expectedExceptionCode 500
      */
     public function testServerError500()
@@ -152,11 +152,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\Timeout
+     * @expectedException Dokobit\Gateway\Exception\Timeout
      * @expectedExceptionCode 504
      */
     public function testTimeout504()
@@ -187,11 +187,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\UnexpectedResponse
+     * @expectedException Dokobit\Gateway\Exception\UnexpectedResponse
      * @expectedExceptionCode 101
      */
     public function testUnexpectedResponseStatusCode()
@@ -222,11 +222,11 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 
     /**
-     * @expectedException Isign\Gateway\Exception\UnexpectedError
+     * @expectedException Dokobit\Gateway\Exception\UnexpectedError
      */
     public function testUnexpectedError()
     {
@@ -239,6 +239,6 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
             )
         ;
 
-        $this->adapter->requestJson('POST', 'https://gateway-sandbox.isign.io');
+        $this->adapter->requestJson('POST', 'https://gateway-sandbox.dokobit.com');
     }
 }

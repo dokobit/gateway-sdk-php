@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\Signing;
+namespace Dokobit\Gateway\Tests\Integration\Signing;
 
-use Isign\Gateway\Query\Signing\CreateBatch;
-use Isign\Gateway\Result\Signing\CreateBatchResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\Signing\CreateBatch;
+use Dokobit\Gateway\Result\Signing\CreateBatchResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class CreateBatchTest extends TestCase
 {

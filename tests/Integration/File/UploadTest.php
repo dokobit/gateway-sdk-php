@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Integration\File;
+namespace Dokobit\Gateway\Tests\Integration\File;
 
-use Isign\Gateway\Query\File\Upload;
-use Isign\Gateway\Result\File\UploadResult;
-use Isign\Gateway\Tests\Integration\TestCase;
+use Dokobit\Gateway\Query\File\Upload;
+use Dokobit\Gateway\Result\File\UploadResult;
+use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class UploadTest extends TestCase
 {

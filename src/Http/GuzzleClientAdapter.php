@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Http;
+namespace Dokobit\Gateway\Http;
 
 use GuzzleHttp;
 use GuzzleHttp\Exception\BadResponseException;
-use Isign\Gateway\Exception;
+use Dokobit\Gateway\Exception;
 use Psr\Http\Message\ResponseInterface;
 
 /**

@@ -16,7 +16,7 @@ Check integration tests under `tests/Integration` for library use cases.
 
 Set second parameter to `true`.
 
-    $client = Isign\Gateway\Client::create([
+    $client = Dokobit\Gateway\Client::create([
         'apiKey' => 'xxxxxx',
         'sandbox' => true,
     ], true);
@@ -30,7 +30,7 @@ Set second parameter to `true`.
     $log = new Logger('requests');
     $log->pushHandler(new StreamHandler(__DIR__ . '/path/to/info.log', Logger::INFO));
 
-    $client = Isign\Gateway\Client::create([
+    $client = Dokobit\Gateway\Client::create([
         'apiKey' => 'xxxxxx',
         'sandbox' => true,
     ], $log);

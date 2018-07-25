@@ -1,9 +1,9 @@
 <?php
-namespace Isign\Gateway\Tests\Query\Signing;
+namespace Dokobit\Gateway\Tests\Query\Signing;
 
-use Isign\Gateway\Query\Signing\Archive;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Tests\TestCase;
+use Dokobit\Gateway\Query\Signing\Archive;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Tests\TestCase;
 
 class ArchiveTest extends TestCase
 {
@@ -61,7 +61,7 @@ class ArchiveTest extends TestCase
 
     public function testCreateResult()
     {
-        $this->assertInstanceOf('Isign\Gateway\Result\Signing\ArchiveResult', $this->query->createResult());
+        $this->assertInstanceOf('Dokobit\Gateway\Result\Signing\ArchiveResult', $this->query->createResult());
     }
 
     public function testHasValidationConstraints()

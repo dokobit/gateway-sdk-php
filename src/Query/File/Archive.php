@@ -1,15 +1,15 @@
 <?php
-namespace Isign\Gateway\Query\File;
+namespace Dokobit\Gateway\Query\File;
 
-use Isign\Gateway\DocumentTypeProvider;
-use Isign\Gateway\Query\QueryInterface;
-use Isign\Gateway\Result\File\ArchiveResult;
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\DocumentTypeProvider;
+use Dokobit\Gateway\Query\QueryInterface;
+use Dokobit\Gateway\Result\File\ArchiveResult;
+use Dokobit\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Archive a signed file.
- * @see https://gateway-sandbox.isign.io/api/doc#_api_archive
+ * @see https://gateway-sandbox.dokobit.com/api/doc#_api_archive
  */
 class Archive implements QueryInterface
 {

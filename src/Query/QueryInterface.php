@@ -1,7 +1,7 @@
 <?php
-namespace Isign\Gateway\Query;
+namespace Dokobit\Gateway\Query;
 
-use Isign\Gateway\Result\ResultInterface;
+use Dokobit\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints\Collection as AssertCollection;
 
 /**
