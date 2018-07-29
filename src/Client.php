@@ -190,7 +190,7 @@ class Client
     /**
      * Get the URL for viewing uploaded file in a frame/modal.
      *
-     * @param string $token File token returned by the Upload action.
+     * @param string $token Signing token returned by the Create action.
      * @return string
      */
     public function getOpenUrl(string $token): string
@@ -203,7 +203,7 @@ class Client
     /**
      * Get the URL for user to sign the file in a frame/modal.
      *
-     * @param string $token File token returned by the Upload action.
+     * @param string $token Signing token returned by the Create action.
      * @param string $accessToken User access token returned by the Addsigner action.
      * @return string
      */
@@ -217,7 +217,7 @@ class Client
     /**
      * Get the URL for signing multiple documents in a frame/modal with one action using a Smart Card.
      *
-     * @param string $token Batch signing token returned by the Createbatch action.
+     * @param string $token Batch signing token returned by the CreateBatch action.
      * @return string
      */
     public function getBatchSigningUrl(string $token): string
@@ -230,7 +230,7 @@ class Client
     /**
      * Get the URL for signing multiple documents in a frame/modal in sequence.
      *
-     * @param string $token Batch signing token returned by the Createbatch action.
+     * @param string $token Batch signing token returned by the CreateBatch action.
      */
     public function getSequenceSigningUrl(string $token): string
     {
