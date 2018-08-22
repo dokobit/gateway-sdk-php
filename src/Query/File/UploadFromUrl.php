@@ -7,27 +7,30 @@ use Dokobit\Gateway\Result\ResultInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Upload a file to Gateway.
+ * Upload a file to Gateway from URL.
  * @see https://gateway-sandbox.dokobit.com/api/doc#_api_file_upload
  */
-class Upload implements QueryInterface
+class UploadFromUrl implements QueryInterface
 {
-    use FileFieldsTrait;
+    /** @var string url of the file to be uploded */
+    private $url;
 
-    /** @var string path of the file to be uploded */
-    private $path;
+    /** @var string SHA1 digest of the file to be uploded */
+    private $digest;
 
     /** @var string|null file name which will be sent to Gateway */
     private $filename;
 
     /**
-     * @param string $path path of the file to be uploded
+     * @param string $url url of the file to be uploded
+     * @param string $digest SHA1 digest of the file to be uploded
      * @param string|null $filename file name which will be sent to Gateway.
      *                    If null or not set, original file name will be sent.
      */
-    public function __construct(string $path, ?string $filename = null)
+    public function __construct(string $url, string $digest, ?string $filename = null)
     {
-        $this->path = $path;
+        $this->url = $url;
+        $this->digest = $digest;
         $this->filename = $filename;
     }
 
@@ -37,14 +40,16 @@ class Upload implements QueryInterface
      */
     public function getFields(): array
     {
-        $fileFields = $this->getFileFields($this->path);
-
-        if ($this->filename !== null) {
-            $fileFields['name'] = basename($this->filename);
+        if ($this->filename === null) {
+            $this->filename = basename(parse_url($this->url, PHP_URL_PATH));
         }
 
         $return = [
-            'file' => $fileFields,
+            'file' => [
+                'name' => $this->filename,
+                'digest' => $this->digest,
+                'url' => $this->url,
+            ],
         ];
 
         return $return;
@@ -63,8 +68,9 @@ class Upload implements QueryInterface
                     'name' => new Assert\Required([
                         new Assert\NotBlank(),
                     ]),
-                    'content' => new Assert\Required([
+                    'url' => new Assert\Required([
                         new Assert\NotBlank(),
+                        new Assert\Url(),
                     ]),
                     'digest' => new Assert\Required([
                         new Assert\NotBlank(),
