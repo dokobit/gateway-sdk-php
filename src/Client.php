@@ -25,7 +25,7 @@ class Client
     private $apiKey = null;
 
     /** @var string production API URL */
-    private $url = 'https://gateway.isign.io';
+    private $url = 'https://gateway.dokobit.com';
 
     /** @var string sandbox mode API URL. Used if $sandbox is true */
     private $sandboxUrl = 'https://gateway-sandbox.dokobit.com';
