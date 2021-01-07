@@ -14,7 +14,7 @@ class SignTest extends TestCase
     /** @var Sign */
     private $query;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->query = new Sign(
             self::TOKEN,

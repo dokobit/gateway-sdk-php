@@ -7,7 +7,7 @@ use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class AddSignerTest extends TestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->createSigning();

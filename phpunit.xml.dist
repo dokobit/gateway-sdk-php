@@ -1,40 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
-<phpunit
-    backupGlobals               = "false"
-    backupStaticAttributes      = "false"
-    colors                      = "true"
-    convertErrorsToExceptions   = "true"
-    convertNoticesToExceptions  = "true"
-    convertWarningsToExceptions = "true"
-    processIsolation            = "false"
-    stopOnFailure               = "false"
-    syntaxCheck                 = "false"
-    bootstrap                   = "vendor/autoload.php"
-    mapTestClassNameToCoveredClassName = "true"
-    forceCoversAnnotation        = "false">
-
-    <php>
-        <!-- For integration tests -->
-        <const name="SANDBOX_API_KEY" value="testgw_ZWRSXshlfVcztk87oKGhHj1ILwfmgGeC"/>
-        <const name="CERTIFICATE_SIGN" value="-----BEGIN CERTIFICATE-----&#10;MIIECzCCAvOgAwIBAgIBAjANBgkqhkiG9w0BAQUFADCBlzELMAkGA1UEBhMCTFQx&#10;EDAOBgNVBAgMB1ZpbG5pdXMxEDAOBgNVBAcMB1ZpbG5pdXMxDjAMBgNVBAoMBWlT&#10;aWduMRYwFAYDVQQLDA1pU2lnbiBTYW5kYm94MR4wHAYDVQQDDBVpU2lnbiBTYW5k&#10;Ym94IFJvb3QgQ0ExHDAaBgkqhkiG9w0BCQEWDWluZm9AaXNpZ24ubHQwHhcNMTUw&#10;MjEyMTMzMTUwWhcNMjUwMjA5MTMzMTUwWjCBgTELMAkGA1UEBhMCTFQxEDAOBgNV&#10;BAcTB1ZpbG5pdXMxFjAUBgNVBAsTDWlTaWduIFNhbmRib3gxKjAoBgNVBAMTIWlT&#10;aWduIFNhbmRib3ggU2lnbmluZyBDZXJ0aWZpY2F0ZTEcMBoGCSqGSIb3DQEJARYN&#10;aW5mb0Bpc2lnbi5sdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN0O&#10;Q122yepo05VzzhnDfKcLbH4Kk7NoNM4fjPIdwluw29nY26fUW2IuJZadCu/LVy5W&#10;Ka5W/nzIfBbyb20Jm65twzjx4Iy817b1ZKNOw0Uu7ZiqV8SUYpJTSqsiRnrLySba&#10;8Bt59iedA9kzs1WKI8FFKzYFMP6k/TW9/ZVFCObqv3sTJ7Hf3WRbt5OrqWMF3a6S&#10;JdAR03npJh4KAeLap2H+pebW6xB9zuKxpU0KTCu5ZuF0zzEhZmFKlsK9TjO4xuZc&#10;E3WFVYX3N4yB0/xDxC5uNNUSf1xvdm+0oBywzchnTwzZXrGsbnH4PRf5+4qxhtbf&#10;u5oYuI7HNyg8f0EXcxcCAwEAAaN2MHQwCQYDVR0TBAIwADAdBgNVHQ4EFgQU4NCY&#10;+3H6APDTrYoigNcAoWwhfCgwHwYDVR0jBBgwFoAUF+1dBI+nD0Fw2Pz0I92r3pkE&#10;GWMwEAYIKwYBBQUHAQMEBAECAwQwFQYDVR0lBA4wDAYKKwYBBAGCNwoDDDANBgkq&#10;hkiG9w0BAQUFAAOCAQEAQaTrWGCSLYS9kptgIprBJp2WD0oidi4PeZrrrh43k8Bq&#10;W6cqC7IFknZh1z4oCuMmqpzhPUecETGK5G5VAL5525kt7xGAJV3N6l/NnNXUI4ZB&#10;7cCNv30ud06kp4FH8QVUhCosINE9hTuZ57EFkYgnlD7CbVVSjK5VWD5Ru5RtCfvQ&#10;AqLBNTm5HJb+rrsX4WetvHUebGr1Yx/9JKEWiMRRwgPcvbF3pZXmUOWy7UXkbgGt&#10;NMCo3IAYKu6JbEcagLqn1gxzyn5o1N9HceSI3Qo0W3fKn8eiYXPNUbOlMrGvseQ/&#10;IJVDBmX7JbMFlu9Wgd0eCgLY7aZu5NujVrx0E0Mqyw==&#10;-----END CERTIFICATE-----"/>
-        <const name="PRIVATE_KEY_SIGN" value="-----BEGIN RSA PRIVATE KEY-----&#10;MIIEowIBAAKCAQEA3Q5DXbbJ6mjTlXPOGcN8pwtsfgqTs2g0zh+M8h3CW7Db2djb&#10;p9RbYi4llp0K78tXLlYprlb+fMh8FvJvbQmbrm3DOPHgjLzXtvVko07DRS7tmKpX&#10;xJRiklNKqyJGesvJJtrwG3n2J50D2TOzVYojwUUrNgUw/qT9Nb39lUUI5uq/exMn&#10;sd/dZFu3k6upYwXdrpIl0BHTeekmHgoB4tqnYf6l5tbrEH3O4rGlTQpMK7lm4XTP&#10;MSFmYUqWwr1OM7jG5lwTdYVVhfc3jIHT/EPELm401RJ/XG92b7SgHLDNyGdPDNle&#10;saxucfg9F/n7irGG1t+7mhi4jsc3KDx/QRdzFwIDAQABAoIBAQCf/bfCNw7S6sXg&#10;kG1l9jfdCwad/vfBzLUTToCLqABIrqugczUftjHh0HaCGO2WeryBm/kU5n/QPqaZ&#10;USRWbbLQvz6hk2arVe5mzBrnm5T3GKz8ZqWZcLAbKc+MJwWN0LqotaM8r7v6Fcl4&#10;RdQRICcatf49XeqFE1L0t6q2g72aqooo22Br5y8D5O5FntbMI87Plhj/3IYd4m9V&#10;9XQcM5j3gNaohJ6upOEJRPS37M9R0BSVHiAOQdMjo33NU1YAPWaKoTJKqFj38Qkc&#10;Qh2McQbk080OdlOmEQ8R1+3NVUmDk+dPfTweE/qQiSXsKN5dRInURYjhxQaTSPOH&#10;JjXwZ9TJAoGBAPS1+nd4DKmNZYWXeKnXRjJBqWrmmoSvyzpLz57Fm0u8Zxc3oZoE&#10;FB57yTllKrWa9fmvhRol+wtMLhTfj4TGpYUGgr3zq3IrgF2WuKy86UmhK4Zn7V4B&#10;wAcoDsl9sIvAhXEbZgbRPODQPyFB5HUmwU2elgHUkdB6d8QKxV/IbKeVAoGBAOdA&#10;6zzuiw4AE7YFmxFnq9tw8PO+VysRw//HCoJdgFqswUgHe0RkEb1ofUHMX1SZU48a&#10;mHT7xM6Eq871c+CEYK9i83TSaPTB5j86vNq5feXiatd5pIMAaOkEX4WKDI2mbML3&#10;Zo3mXHn6aNif64hlua94l6G8mcc/R3PDH/nHuZT7AoGATlOlPPI3E1pH4Y/PNoXK&#10;WTG9OZNgaBIguaMkbIyRnZdLZBoRZsvhaLR0fyOLnR9hli8BKpJ3nXEf2tyIApbW&#10;yhKAbK5+9QdJiitBJ0E8Zq3o0ZeYWZuzzFadDQ9nIARacg60BICavNbLLij6KClk&#10;fCTDnQheN93LUfukm3j6llUCgYBQgFrjZS7m+sPh02W901cSFujqENKLXa3bNlDE&#10;PQRXjFfkWSZiEmvSgbNI2no9GvrpkBqObq5+LdUZQHzMJYj6xPl3K1/6BB3A2ROx&#10;GG1pPz5uMBxCtjvPEgSmmf3wuYSXAkSjFRQQKkmhT1pQqwjOuq4eUWc+4xpehAh3&#10;jT1fTQKBgGJzf+lowT6rzCI2U2pMe2iDxLc8oDSpNe+7+zHQu9LTDZEevSGG6zE3&#10;/1+y4oDobUnbAOaYRhjjgkZI6d5SN9ELdQpUvyr/mk77RBHo1fMxrxB+bPod5tBw&#10;GwkxHzVw1+K4esG0+jdcELAvLiSIFAXemd6CYlqpwaFiIyDqD16V&#10;-----END RSA PRIVATE KEY-----"/>
-    </php>
-
-    <testsuites>
-        <testsuite name="Unit">
-            <directory>./tests</directory>
-            <exclude>./tests/Integration</exclude>
-        </testsuite>
-        <testsuite name="Integration">
-            <directory>./tests/Integration</directory>
-        </testsuite>
-    </testsuites>
-
-    <filter>
-        <whitelist>
-            <directory>./src</directory>
-        </whitelist>
-    </filter>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" backupGlobals="false" backupStaticAttributes="false" colors="true" convertErrorsToExceptions="true" convertNoticesToExceptions="true" convertWarningsToExceptions="true" processIsolation="false" stopOnFailure="false" bootstrap="vendor/autoload.php" forceCoversAnnotation="false" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd">
+  <coverage processUncoveredFiles="true">
+    <include>
+      <directory>./src</directory>
+    </include>
+  </coverage>
+  <php>
+    <!-- For integration tests -->
+    <const name="SANDBOX_API_KEY" value="testgw_ZWRSXshlfVcztk87oKGhHj1ILwfmgGeC"/>
+    <const name="CERTIFICATE_SIGN" value="-----BEGIN CERTIFICATE-----&#10;MIIECzCCAvOgAwIBAgIBAjANBgkqhkiG9w0BAQUFADCBlzELMAkGA1UEBhMCTFQx&#10;EDAOBgNVBAgMB1ZpbG5pdXMxEDAOBgNVBAcMB1ZpbG5pdXMxDjAMBgNVBAoMBWlT&#10;aWduMRYwFAYDVQQLDA1pU2lnbiBTYW5kYm94MR4wHAYDVQQDDBVpU2lnbiBTYW5k&#10;Ym94IFJvb3QgQ0ExHDAaBgkqhkiG9w0BCQEWDWluZm9AaXNpZ24ubHQwHhcNMTUw&#10;MjEyMTMzMTUwWhcNMjUwMjA5MTMzMTUwWjCBgTELMAkGA1UEBhMCTFQxEDAOBgNV&#10;BAcTB1ZpbG5pdXMxFjAUBgNVBAsTDWlTaWduIFNhbmRib3gxKjAoBgNVBAMTIWlT&#10;aWduIFNhbmRib3ggU2lnbmluZyBDZXJ0aWZpY2F0ZTEcMBoGCSqGSIb3DQEJARYN&#10;aW5mb0Bpc2lnbi5sdDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAN0O&#10;Q122yepo05VzzhnDfKcLbH4Kk7NoNM4fjPIdwluw29nY26fUW2IuJZadCu/LVy5W&#10;Ka5W/nzIfBbyb20Jm65twzjx4Iy817b1ZKNOw0Uu7ZiqV8SUYpJTSqsiRnrLySba&#10;8Bt59iedA9kzs1WKI8FFKzYFMP6k/TW9/ZVFCObqv3sTJ7Hf3WRbt5OrqWMF3a6S&#10;JdAR03npJh4KAeLap2H+pebW6xB9zuKxpU0KTCu5ZuF0zzEhZmFKlsK9TjO4xuZc&#10;E3WFVYX3N4yB0/xDxC5uNNUSf1xvdm+0oBywzchnTwzZXrGsbnH4PRf5+4qxhtbf&#10;u5oYuI7HNyg8f0EXcxcCAwEAAaN2MHQwCQYDVR0TBAIwADAdBgNVHQ4EFgQU4NCY&#10;+3H6APDTrYoigNcAoWwhfCgwHwYDVR0jBBgwFoAUF+1dBI+nD0Fw2Pz0I92r3pkE&#10;GWMwEAYIKwYBBQUHAQMEBAECAwQwFQYDVR0lBA4wDAYKKwYBBAGCNwoDDDANBgkq&#10;hkiG9w0BAQUFAAOCAQEAQaTrWGCSLYS9kptgIprBJp2WD0oidi4PeZrrrh43k8Bq&#10;W6cqC7IFknZh1z4oCuMmqpzhPUecETGK5G5VAL5525kt7xGAJV3N6l/NnNXUI4ZB&#10;7cCNv30ud06kp4FH8QVUhCosINE9hTuZ57EFkYgnlD7CbVVSjK5VWD5Ru5RtCfvQ&#10;AqLBNTm5HJb+rrsX4WetvHUebGr1Yx/9JKEWiMRRwgPcvbF3pZXmUOWy7UXkbgGt&#10;NMCo3IAYKu6JbEcagLqn1gxzyn5o1N9HceSI3Qo0W3fKn8eiYXPNUbOlMrGvseQ/&#10;IJVDBmX7JbMFlu9Wgd0eCgLY7aZu5NujVrx0E0Mqyw==&#10;-----END CERTIFICATE-----"/>
+    <const name="PRIVATE_KEY_SIGN" value="-----BEGIN RSA PRIVATE KEY-----&#10;MIIEowIBAAKCAQEA3Q5DXbbJ6mjTlXPOGcN8pwtsfgqTs2g0zh+M8h3CW7Db2djb&#10;p9RbYi4llp0K78tXLlYprlb+fMh8FvJvbQmbrm3DOPHgjLzXtvVko07DRS7tmKpX&#10;xJRiklNKqyJGesvJJtrwG3n2J50D2TOzVYojwUUrNgUw/qT9Nb39lUUI5uq/exMn&#10;sd/dZFu3k6upYwXdrpIl0BHTeekmHgoB4tqnYf6l5tbrEH3O4rGlTQpMK7lm4XTP&#10;MSFmYUqWwr1OM7jG5lwTdYVVhfc3jIHT/EPELm401RJ/XG92b7SgHLDNyGdPDNle&#10;saxucfg9F/n7irGG1t+7mhi4jsc3KDx/QRdzFwIDAQABAoIBAQCf/bfCNw7S6sXg&#10;kG1l9jfdCwad/vfBzLUTToCLqABIrqugczUftjHh0HaCGO2WeryBm/kU5n/QPqaZ&#10;USRWbbLQvz6hk2arVe5mzBrnm5T3GKz8ZqWZcLAbKc+MJwWN0LqotaM8r7v6Fcl4&#10;RdQRICcatf49XeqFE1L0t6q2g72aqooo22Br5y8D5O5FntbMI87Plhj/3IYd4m9V&#10;9XQcM5j3gNaohJ6upOEJRPS37M9R0BSVHiAOQdMjo33NU1YAPWaKoTJKqFj38Qkc&#10;Qh2McQbk080OdlOmEQ8R1+3NVUmDk+dPfTweE/qQiSXsKN5dRInURYjhxQaTSPOH&#10;JjXwZ9TJAoGBAPS1+nd4DKmNZYWXeKnXRjJBqWrmmoSvyzpLz57Fm0u8Zxc3oZoE&#10;FB57yTllKrWa9fmvhRol+wtMLhTfj4TGpYUGgr3zq3IrgF2WuKy86UmhK4Zn7V4B&#10;wAcoDsl9sIvAhXEbZgbRPODQPyFB5HUmwU2elgHUkdB6d8QKxV/IbKeVAoGBAOdA&#10;6zzuiw4AE7YFmxFnq9tw8PO+VysRw//HCoJdgFqswUgHe0RkEb1ofUHMX1SZU48a&#10;mHT7xM6Eq871c+CEYK9i83TSaPTB5j86vNq5feXiatd5pIMAaOkEX4WKDI2mbML3&#10;Zo3mXHn6aNif64hlua94l6G8mcc/R3PDH/nHuZT7AoGATlOlPPI3E1pH4Y/PNoXK&#10;WTG9OZNgaBIguaMkbIyRnZdLZBoRZsvhaLR0fyOLnR9hli8BKpJ3nXEf2tyIApbW&#10;yhKAbK5+9QdJiitBJ0E8Zq3o0ZeYWZuzzFadDQ9nIARacg60BICavNbLLij6KClk&#10;fCTDnQheN93LUfukm3j6llUCgYBQgFrjZS7m+sPh02W901cSFujqENKLXa3bNlDE&#10;PQRXjFfkWSZiEmvSgbNI2no9GvrpkBqObq5+LdUZQHzMJYj6xPl3K1/6BB3A2ROx&#10;GG1pPz5uMBxCtjvPEgSmmf3wuYSXAkSjFRQQKkmhT1pQqwjOuq4eUWc+4xpehAh3&#10;jT1fTQKBgGJzf+lowT6rzCI2U2pMe2iDxLc8oDSpNe+7+zHQu9LTDZEevSGG6zE3&#10;/1+y4oDobUnbAOaYRhjjgkZI6d5SN9ELdQpUvyr/mk77RBHo1fMxrxB+bPod5tBw&#10;GwkxHzVw1+K4esG0+jdcELAvLiSIFAXemd6CYlqpwaFiIyDqD16V&#10;-----END RSA PRIVATE KEY-----"/>
+  </php>
+  <testsuites>
+    <testsuite name="Unit">
+      <directory>./tests</directory>
+      <exclude>./tests/Integration</exclude>
+    </testsuite>
+    <testsuite name="Integration">
+      <directory>./tests/Integration</directory>
+    </testsuite>
+  </testsuites>
 </phpunit>

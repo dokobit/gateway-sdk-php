@@ -3,7 +3,9 @@ namespace Dokobit\Gateway\Tests;
 
 use Dokobit\Gateway\Client;
 
-class ClientTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ClientTest extends TestCase
 {
     /** @var Dokobit\Gateway\Query\QueryInterface */
     private $methodStub;
@@ -20,7 +22,7 @@ class ClientTest extends \PHPUnit\Framework\TestCase
     /** @var Client */
     private $client;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->methodStub = $this->getMockBuilder('Dokobit\Gateway\Query\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
@@ -110,11 +112,9 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         $this->assertSame('https://custom-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
-    /**
-     * @expectedException Dokobit\Gateway\Exception\InvalidApiKey
-     */
     public function testApiKeyRequired()
     {
+        $this->expectException(\Dokobit\Gateway\Exception\InvalidApiKey::class);
         $client = new Client(
             $this->clientStub,
             $this->responseMapperStub,
@@ -215,12 +215,10 @@ class ClientTest extends \PHPUnit\Framework\TestCase
         );
     }
 
-    /**
-     * @expectedException Dokobit\Gateway\Exception\QueryValidator
-     * @expectedExceptionMessage Query parameters validation failed
-     */
     public function testGetValidationFailed()
     {
+        $this->expectException(\Dokobit\Gateway\Exception\QueryValidator::class);
+        $this->expectExceptionMessage('Query parameters validation failed');
         $violations = $this->getMockBuilder('Symfony\Component\Validator\ConstraintViolationList')
             ->disableOriginalConstructor()
             ->getMock();

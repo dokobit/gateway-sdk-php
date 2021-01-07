@@ -3,7 +3,9 @@ namespace Dokobit\Gateway\Tests\Exception;
 
 use Dokobit\Gateway\Exception\InvalidData;
 
-class RequestTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class RequestTest extends TestCase
 {
     public function testGetResponseData()
     {

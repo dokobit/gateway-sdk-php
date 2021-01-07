@@ -7,7 +7,7 @@ use Dokobit\Gateway\Result\Signing\PrepareResult;
 use Dokobit\Gateway\Result\Signing\SignResult;
 use Dokobit\Gateway\Tests\Integration\TestCase;
 
-class PrepareTest extends TestCase
+class SignTest extends TestCase
 {
     public function testPrepare()
     {

@@ -9,7 +9,7 @@ class SealResultTest extends TestCase
 {
     private $method;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->method = new SealResult();
     }
@@ -19,8 +19,5 @@ class SealResultTest extends TestCase
     public function expectedFields()
     {
         $this->markTestIncomplete('Result not documented at the moment.');
-        return [
-            ['status'],
-        ];
     }
 }

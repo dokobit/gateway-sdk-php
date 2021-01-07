@@ -13,10 +13,7 @@ class ArchiveTest extends TestCase
     /** @var Archive */
     private $query;
 
-    /** @var Archive */
-    private $queryToken;
-
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->query = new Archive(
             self::TOKEN,

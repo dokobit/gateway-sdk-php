@@ -4,7 +4,9 @@ namespace Dokobit\Gateway\Tests;
 /**
  * Base test case
  */
-class TestCase extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase as BaseTestCase;
+
+class TestCase extends BaseTestCase
 {
     /**
      * Assert if setter exists

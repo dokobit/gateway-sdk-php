@@ -9,7 +9,7 @@ class CreateResultTest extends TestCase
 {
     private $method;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->method = new CreateResult();
     }
