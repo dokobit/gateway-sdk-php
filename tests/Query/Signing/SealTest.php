@@ -23,7 +23,7 @@ class SealTest extends TestCase
     /** @var Seal */
     private $queryFull;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->queryMinimal = new Seal(
             self::TOKEN,

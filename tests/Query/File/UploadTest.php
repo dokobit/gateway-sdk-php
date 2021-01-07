@@ -16,7 +16,7 @@ class UploadTest extends TestCase
     /** @var Upload */
     private $queryOverriddenFilename;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new Upload(
             __DIR__ . '/../../data/document.pdf'

@@ -9,7 +9,7 @@ class SealResultTest extends TestCase
 {
     private $method;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->method = new SealResult();
     }

@@ -7,7 +7,7 @@ use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class RemoveSignerTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->createSigning();

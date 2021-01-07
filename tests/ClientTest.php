@@ -3,7 +3,7 @@ namespace Dokobit\Gateway\Tests;
 
 use Dokobit\Gateway\Client;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+class ClientTest extends \PHPUnit\Framework\TestCase
 {
     /** @var Dokobit\Gateway\Query\QueryInterface */
     private $methodStub;
@@ -20,7 +20,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /** @var Client */
     private $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->methodStub = $this->getMockBuilder('Dokobit\Gateway\Query\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
@@ -87,7 +87,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(false, $client->isSandbox());
-        $this->assertSame('https://gateway.isign.io', $client->getUrl());
+        $this->assertSame('https://gateway.dokobit.com', $client->getUrl());
         $this->assertSame('https://gateway-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
@@ -131,7 +131,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['apiKey' => 'xxxxxx']
         );
         $this->assertEquals(
-            'https://gateway.isign.io/api/archive.json',
+            'https://gateway.dokobit.com/api/archive.json',
             $client->getFullMethodUrl('archive')
         );
     }

@@ -11,7 +11,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use PHPUnit_Framework_MockObject_MockObject;
 
-class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
+class GuzzleClientAdapterTest extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var GuzzleClientAdapter
@@ -21,7 +21,7 @@ class GuzzleClientAdapterTest extends \PHPUnit_Framework_TestCase
     /** @var PHPUnit_Framework_MockObject_MockObject|Client */
     private $client;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->client = $this->getMockBuilder(Client::class)
             ->disableOriginalConstructor()

@@ -4,7 +4,7 @@ namespace Dokobit\Gateway\Tests\Exception;
 use Dokobit\Gateway\Exception\QueryValidator;
 use Symfony\Component\Validator\ConstraintViolationList;
 
-class QueryValidatorTest extends \PHPUnit_Framework_TestCase
+class QueryValidatorTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetResponseData()
     {

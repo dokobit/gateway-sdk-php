@@ -15,7 +15,7 @@ class DeleteTest extends TestCase
     /** @var Delete */
     private $queryToken;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new Delete(
             self::TOKEN

@@ -12,7 +12,7 @@ class UploadStatusTest extends TestCase
     /** @var UploadStatus */
     private $query;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->query = new UploadStatus(
             self::TOKEN

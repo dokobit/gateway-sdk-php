@@ -7,7 +7,7 @@ use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class UploadStatusTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         $this->uploadFile();
