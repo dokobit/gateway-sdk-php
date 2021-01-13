@@ -7,14 +7,15 @@
     "homepage": "https://www.dokobit.com",
 
     "require": {
-        "php"                       : ">=7.0.0",
+        "php"                       : ">=7.2.0",
         "guzzlehttp/guzzle"         : "^6.3.3",
-        "symfony/validator"         : "~3.2|~4.0"
+        "symfony/validator"         : "~3.4|~4.4|~5.2",
+        "symfony/intl"              : "^5.2"
     },
     "require-dev": {
-        "psr/log"           : "~1.0",
-        "monolog/monolog"   : "~1.0",
-        "phpunit/phpunit"   : "~5.7"
+        "psr/log"                   : "~1.0",
+        "monolog/monolog"           : "~1.0",
+        "phpunit/phpunit"           : "^6.5.14 || ^7.5.20 || ^8.5.13 || ^9.5"
     },
     "autoload": {
         "psr-4": {

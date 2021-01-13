@@ -12,7 +12,7 @@ class StatusTest extends TestCase
     /** @var Status */
     private $query;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new Status(
             self::TOKEN

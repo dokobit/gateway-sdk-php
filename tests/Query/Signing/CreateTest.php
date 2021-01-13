@@ -25,7 +25,7 @@ class CreateTest extends TestCase
     /** @var Create */
     private $queryMinimal;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new Create(
             self::TYPE,

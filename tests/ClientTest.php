@@ -3,7 +3,9 @@ namespace Dokobit\Gateway\Tests;
 
 use Dokobit\Gateway\Client;
 
-class ClientTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ClientTest extends TestCase
 {
     /** @var Dokobit\Gateway\Query\QueryInterface */
     private $methodStub;
@@ -20,7 +22,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     /** @var Client */
     private $client;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->methodStub = $this->getMockBuilder('Dokobit\Gateway\Query\QueryInterface')
             ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
@@ -87,7 +89,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
 
         $this->assertSame(false, $client->isSandbox());
-        $this->assertSame('https://gateway.isign.io', $client->getUrl());
+        $this->assertSame('https://gateway.dokobit.com', $client->getUrl());
         $this->assertSame('https://gateway-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
@@ -110,11 +112,9 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('https://custom-sandbox.dokobit.com', $client->getSandboxUrl());
     }
 
-    /**
-     * @expectedException Dokobit\Gateway\Exception\InvalidApiKey
-     */
     public function testApiKeyRequired()
     {
+        $this->expectException(\Dokobit\Gateway\Exception\InvalidApiKey::class);
         $client = new Client(
             $this->clientStub,
             $this->responseMapperStub,
@@ -131,7 +131,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
             ['apiKey' => 'xxxxxx']
         );
         $this->assertEquals(
-            'https://gateway.isign.io/api/archive.json',
+            'https://gateway.dokobit.com/api/archive.json',
             $client->getFullMethodUrl('archive')
         );
     }
@@ -215,12 +215,10 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /**
-     * @expectedException Dokobit\Gateway\Exception\QueryValidator
-     * @expectedExceptionMessage Query parameters validation failed
-     */
     public function testGetValidationFailed()
     {
+        $this->expectException(\Dokobit\Gateway\Exception\QueryValidator::class);
+        $this->expectExceptionMessage('Query parameters validation failed');
         $violations = $this->getMockBuilder('Symfony\Component\Validator\ConstraintViolationList')
             ->disableOriginalConstructor()
             ->getMock();

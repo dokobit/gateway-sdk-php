@@ -10,7 +10,9 @@ use Dokobit\Gateway\Result\Signing\CreateResult;
 /**
  * Base test case
  */
-class TestCase extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase as BaseTestCase;
+
+class TestCase extends BaseTestCase
 {
     const SIGNER1_ID = 'Signer1';
     const SIGNER2_ID = 'Signer2';
@@ -27,7 +29,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     /** @var string */
     protected $signerToken;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $params = [
             'apiKey' => SANDBOX_API_KEY,

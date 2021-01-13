@@ -14,7 +14,7 @@ class PrepareTest extends TestCase
     /** @var Prepare */
     private $query;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new Prepare(
             self::TOKEN,

@@ -9,7 +9,7 @@ class SignResultTest extends TestCase
 {
     private $method;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->method = new SignResult();
     }

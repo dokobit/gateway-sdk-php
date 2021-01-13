@@ -15,10 +15,7 @@ class CreateBatchTest extends TestCase
     /** @var CreateBatch */
     private $query;
 
-    /** @var CreateBatch */
-    private $queryMinimal;
-
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new CreateBatch(
             [

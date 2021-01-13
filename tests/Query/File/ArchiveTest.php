@@ -17,7 +17,7 @@ class ArchiveTest extends TestCase
     /** @var Archive */
     private $queryToken;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new Archive(
             self::TYPE,
@@ -57,12 +57,10 @@ class ArchiveTest extends TestCase
         $this->assertSame(self::TOKEN, $fields['file']['token']);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('File "" does not exist');
         $method = new Archive(self::TYPE, '');
         $method->getFields();
     }

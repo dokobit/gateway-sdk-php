@@ -16,7 +16,7 @@ class UploadTest extends TestCase
     /** @var Upload */
     private $queryOverriddenFilename;
 
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new Upload(
             __DIR__ . '/../../data/document.pdf'
@@ -52,12 +52,10 @@ class UploadTest extends TestCase
         $this->assertSame(self::NAME_OVERRIDE, $fields['file']['name']);
     }
 
-    /**
-     * @expectedException \RuntimeException
-     * @expectedExceptionMessage File "" does not exist
-     */
     public function testGetFileFieldsWithNonExistingFile()
     {
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('File "" does not exist');
         $method = new Upload('');
         $method->getFields();
     }

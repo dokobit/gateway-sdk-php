@@ -17,10 +17,7 @@ class AddSignerTest extends TestCase
     /** @var Archive */
     private $query;
 
-    /** @var Archive */
-    private $queryToken;
-
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new AddSigner(
             self::TOKEN,

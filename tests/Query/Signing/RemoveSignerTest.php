@@ -13,10 +13,7 @@ class RemoveSignerTest extends TestCase
     /** @var RemoveSigner */
     private $query;
 
-    /** @var RemoveSigner */
-    private $queryToken;
-
-    public function setUp()
+    protected function setUp(): void
     {
         $this->query = new RemoveSigner(
             self::TOKEN,

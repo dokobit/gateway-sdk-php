@@ -7,7 +7,7 @@ use Dokobit\Gateway\Tests\Integration\TestCase;
 
 class DeleteTest extends TestCase
 {
-    public function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->createSigning();
