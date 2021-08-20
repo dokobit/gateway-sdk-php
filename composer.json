@@ -7,8 +7,8 @@
     "homepage": "https://www.dokobit.com",
 
     "require": {
-        "php"                       : ">=7.2.0",
-        "guzzlehttp/guzzle"         : "^6.3.3",
+        "php"                       : "^7.2.5",
+        "guzzlehttp/guzzle"         : "^7.0",
         "symfony/validator"         : "~3.4|~4.4|~5.2",
         "symfony/intl"              : "^5.2"
     },
