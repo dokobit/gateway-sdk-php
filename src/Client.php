@@ -66,7 +66,7 @@ class Client
      * @param array $options Available properties: [
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
-     *     'url' => 'https://gateway.isign.io',
+     *     'url' => 'https://gateway.dokobit.com',
      *     'sandboxUrl' => 'https://gateway-sandbox.dokobit.com',
      * ]
      * @param LoggerInterface|null $logger Logger used to log
@@ -256,7 +256,7 @@ class Client
             $url .= '?access_token=' . $this->apiKey;
         }
 
-        $this->client->requestBody(QueryInterface::GET, $url, ['save_to' => $path]);
+        $this->client->requestBody(QueryInterface::GET, $url, ['sink' => $path]);
     }
 
     /**
