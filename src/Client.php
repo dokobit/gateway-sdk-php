@@ -66,7 +66,7 @@ class Client
      * @param array $options Available properties: [
      *     'apiKey' => 'xxxxxx',
      *     'sandbox' => true,
-     *     'url' => 'https://gateway.dokobit.io',
+     *     'url' => 'https://gateway.dokobit.com',
      *     'sandboxUrl' => 'https://gateway-sandbox.dokobit.com',
      * ]
      * @param LoggerInterface|null $logger Logger used to log
