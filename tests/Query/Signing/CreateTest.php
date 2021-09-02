@@ -12,8 +12,8 @@ class CreateTest extends TestCase
     const SIGNER_ID = 'FirstSignerId';
     const SIGNER_NAME = 'Kraft';
     const SIGNER_SURNAME = 'Lawrence';
-    const SIGNER_CODE = '51001091072';
-    const SIGNER_PHONE = '+37060000007';
+    const SIGNER_CODE = '50001018865';
+    const SIGNER_PHONE = '+37060000666';
     const FILE_TOKEN = 'UploadedFileToken';
     const POSTBACK_URL = 'https://www.example.org/postback.php';
     const LANGUAGE = 'lt';
