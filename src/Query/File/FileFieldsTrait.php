@@ -18,7 +18,7 @@ trait FileFieldsTrait
 
         return [
             'name' => basename($path),
-            'digest' => sha1($content),
+            'digest' => hash('sha256', $content),
             'content' => base64_encode($content)
         ];
     }
