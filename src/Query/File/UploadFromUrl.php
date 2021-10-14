@@ -15,7 +15,7 @@ class UploadFromUrl implements QueryInterface
     /** @var string url of the file to be uploded */
     private $url;
 
-    /** @var string SHA1 digest of the file to be uploded */
+    /** @var string SHA256 digest of the file to be uploded */
     private $digest;
 
     /** @var string|null file name which will be sent to Gateway */
@@ -23,7 +23,7 @@ class UploadFromUrl implements QueryInterface
 
     /**
      * @param string $url url of the file to be uploded
-     * @param string $digest SHA1 digest of the file to be uploded
+     * @param string $digest SHA256 digest of the file to be uploded
      * @param string|null $filename file name which will be sent to Gateway.
      *                    If null or not set, original file name will be sent.
      */
