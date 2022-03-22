@@ -10,7 +10,6 @@
         "php"                       : "^7.2.5",
         "guzzlehttp/guzzle"         : "^7.0",
         "symfony/validator"         : "~3.4|~4.4|~5.2",
-        "symfony/intl"              : "^5.2"
     },
     "require-dev": {
         "psr/log"                   : "~1.0",
