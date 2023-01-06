@@ -91,7 +91,6 @@ class AddSigner implements QueryInterface
                         ]),
                         'country_code' => new Assert\Optional([
                             new Assert\NotBlank(),
-                            new Assert\Country(),
                         ]),
                         'city' => new Assert\Optional([
                             new Assert\NotBlank(),
