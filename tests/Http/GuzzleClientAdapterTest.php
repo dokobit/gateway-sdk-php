@@ -92,6 +92,10 @@ class GuzzleClientAdapterTest extends TestCase
         $request = $this->getMockBuilder(RequestInterface::class)->getMock();
         $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
 
+        $stream = $this->getMockBuilder(\Psr\Http\Message\StreamInterface::class)->getMock();
+        $stream->method('__toString')->willReturn('response body');
+        $stream->method('getContents')->willReturn('response body');
+
         $response
             ->method('getStatusCode')
             ->willReturn(403)
@@ -99,7 +103,7 @@ class GuzzleClientAdapterTest extends TestCase
         $response
             ->expects($this->once())
             ->method('getBody')
-            ->willReturn('response body')
+            ->willReturn($stream)
         ;
 
         $this->client
@@ -125,6 +129,10 @@ class GuzzleClientAdapterTest extends TestCase
         $request = $this->getMockBuilder(RequestInterface::class)->getMock();
         $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
 
+        $stream = $this->getMockBuilder(\Psr\Http\Message\StreamInterface::class)->getMock();
+        $stream->method('__toString')->willReturn('response body');
+        $stream->method('getContents')->willReturn('response body');
+
         $response
             ->method('getStatusCode')
             ->willReturn(500)
@@ -132,7 +140,7 @@ class GuzzleClientAdapterTest extends TestCase
         $response
             ->expects($this->once())
             ->method('getBody')
-            ->willReturn('response body')
+            ->willReturn($stream)
         ;
 
         $this->client
@@ -158,6 +166,10 @@ class GuzzleClientAdapterTest extends TestCase
         $request = $this->getMockBuilder(RequestInterface::class)->getMock();
         $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
 
+        $stream = $this->getMockBuilder(\Psr\Http\Message\StreamInterface::class)->getMock();
+        $stream->method('__toString')->willReturn('response body');
+        $stream->method('getContents')->willReturn('response body');
+
         $response
             ->method('getStatusCode')
             ->willReturn(504)
@@ -165,7 +177,7 @@ class GuzzleClientAdapterTest extends TestCase
         $response
             ->expects($this->once())
             ->method('getBody')
-            ->willReturn('response body')
+            ->willReturn($stream)
         ;
 
         $this->client
@@ -191,6 +203,10 @@ class GuzzleClientAdapterTest extends TestCase
         $request = $this->getMockBuilder(RequestInterface::class)->getMock();
         $response = $this->getMockBuilder(ResponseInterface::class)->getMock();
 
+        $stream = $this->getMockBuilder(\Psr\Http\Message\StreamInterface::class)->getMock();
+        $stream->method('__toString')->willReturn('response body');
+        $stream->method('getContents')->willReturn('response body');
+
         $response
             ->method('getStatusCode')
             ->willReturn(101)
@@ -198,7 +214,7 @@ class GuzzleClientAdapterTest extends TestCase
         $response
             ->expects($this->once())
             ->method('getBody')
-            ->willReturn('response body')
+            ->willReturn($stream)
         ;
 
         $this->client
