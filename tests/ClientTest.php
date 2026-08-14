@@ -176,6 +176,16 @@ class ClientTest extends TestCase
         $this->clientStub
             ->expects($this->once())
             ->method('requestJson')
+            ->with(
+                'post',
+                $this->anything(),
+                [
+                    'query' => [
+                        'access_token' => 'xxx'
+                    ],
+                    'json' => ['phone' => '+3706xxxxxxx', 'code' => 'xxxxxxxxxxx']
+                ]
+            )
             ->willReturn([])
         ;
 
@@ -186,6 +196,57 @@ class ClientTest extends TestCase
         ;
 
         $this->client->get($this->methodStub);
+    }
+
+    public function testGetWithGetMethod()
+    {
+        $getStub = $this->getMockBuilder('Dokobit\Gateway\Query\QueryInterface')
+            ->setMethods(['getAction', 'getMethod', 'getFields', 'createResult', 'getValidationConstraints'])
+            ->disableOriginalConstructor()
+            ->getMock();
+        $getStub->method('getAction')->willReturn('login');
+        $getStub->method('getMethod')->willReturn('GET');
+        $getStub->method('getFields')->willReturn(['param1' => 'val1', 'param2' => 'val2']);
+
+        $getStub->expects($this->once())
+            ->method('createResult')
+            ->willReturn(
+                $this->getMockBuilder('Dokobit\Gateway\Result\ResultInterface')
+                    ->disableOriginalConstructor()
+                    ->getMock()
+            )
+        ;
+
+        $this->responseMapperStub
+            ->expects($this->once())
+            ->method('map')
+        ;
+
+        // Verify that the query fields are passed under 'query' in Guzzle options, and NOT in 'json'
+        $this->clientStub
+            ->expects($this->once())
+            ->method('requestJson')
+            ->with(
+                'GET',
+                $this->anything(),
+                [
+                    'query' => [
+                        'access_token' => 'xxx',
+                        'param1' => 'val1',
+                        'param2' => 'val2'
+                    ]
+                ]
+            )
+            ->willReturn([])
+        ;
+
+        $this->validatorStub
+            ->expects($this->once())
+            ->method('validate')
+            ->willReturn([])
+        ;
+
+        $this->client->get($getStub);
     }
 
     /**

@@ -268,13 +268,17 @@ class Client
      */
     private function request(string $method, string $url, array $fields): ?array
     {
-
         $options = [
             'query' => [
                 'access_token' => $this->getApiKey()
             ],
-            'json' => $fields,
         ];
+
+        if (strtoupper($method) === QueryInterface::GET) {
+            $options['query'] = array_merge($options['query'], $fields);
+        } else {
+            $options['json'] = $fields;
+        }
 
         return $this->client->requestJson($method, $url, $options);
     }
